@@ -2,6 +2,8 @@ import os
 import subprocess
 import colorama
 import json
+import webbrowser
+import sys
 
 from datetime import datetime
 from colorama import Fore, Back, Style
@@ -30,8 +32,17 @@ while True is not False:
         if confirm == "y":
             os.system("git pull origin main")
             os.system("python3 main.py")
+        elif confirm == "n":
+            if platform.system() == "Linux":
+                webbrowser.open_new_tab("https://git-scm.com/download/linux")
+            elif platform.system() == "Windows":
+                webbrowser.open_new_tab("https://git-scm.com/download/win")
+            elif platform.system() == "Darwin":
+                webbrowser.open_new_tab("https://git-scm.com/download/mac")
+            else:
+                print("ERROR: Can't open a download for GIT. Download Manually instead to Use")
     elif msg == "exit":
-        exit()
+        Sys.Exit()
     elif msg == "browser":
         import sys
         from PyQt5.QtWidgets import *
