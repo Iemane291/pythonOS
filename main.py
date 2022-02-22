@@ -33,4 +33,4 @@ while True is not False:
     elif msg == "exit":
         exit()
     else:
-        print(msg + " is not a command.")
+        print(msg + " is not a command")
