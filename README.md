@@ -1,2 +1,8 @@
-# chungos_rewrite
-Rewrite on ChungOS, aiming to be better than chungOS and implemented it's own features.
+# What is this?
+
+Well, this is a rewrite of ChungOS, aiming to be better that chungOS and more secure.
+
+ChungOS was made by me and Arezal (ArezalGamer89)
+
+ChungOS rewrite was made by me
+
