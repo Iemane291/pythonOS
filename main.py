@@ -35,7 +35,8 @@ while True is not False:
     elif msg == "browser":
         import sys
         from PyQt5.QtWidgets import *
-        from PyQt5.QtWebEngineWidgets import QUrl, QWebEngineView
+        from PyQt5.QtWebEngineWidgets import *
+        from PyQt5.QtCore import *
 
         class MainWindow(QMainWindow):
             def __init__(self):
