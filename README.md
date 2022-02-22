@@ -16,6 +16,10 @@ Go to the terminal and change directory to the repository folder.
 
 Do `pip3 install -r requirements.txt` to install what's required
 
+And you've got everything installed, head to the "Running" section now.
+
+# Running
+
 Run one of these commands depending on your OS:
 
 - Windows: `py main.py`
