@@ -18,7 +18,7 @@ def get_option(option):
 
 
 while True is not False:
-    msg = input(os.getcwd() + " >>> ")
+    msg = input(os.getcwd() + " >>> ").lower()
     if msg == "time":
         print(datetime.now())
     elif msg == "update":
@@ -28,6 +28,9 @@ while True is not False:
             print("This action requires Git, do you have it installed?")
         confirm = input().lower()
         if confirm == "y":
-            subprocess.run("git pull origin main")
+            os.system("git pull origin main")
+            os.system("python3 main.py")
+    elif msg == "exit":
+        exit()
     else:
-        print(msg + " could not be recognized as an internal or external command.")
+        print(msg + " is not a command.")
