@@ -72,7 +72,7 @@ while True is not False:
                     self.browser = QWebEngineView()
                     self.browser.setUrl(QUrl("https://google.com"))
                     self.setCentralWidget(self.browser)
-                    self.setFixedWidth(500)
+                    self.showMaximized()
 
                     navbar = QToolBar()
                     self.addToolBar(navbar)
