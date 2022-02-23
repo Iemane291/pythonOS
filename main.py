@@ -37,13 +37,14 @@ while True is not False:
                 print(
                     "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind."
                 )
-            newoption = None
-            if msg.split(" ")[2].lower() == "false":
-                newoption = False
-            elif msg.split(" ")[2].lower() == "true":
-                newoption = True
-            setOption(msg.split(" ")[1].lower(), newoption)
-            print("Changed option.")
+            else:
+                newoption = None
+                if msg.split(" ")[2].lower() == "false":
+                    newoption = False
+                elif msg.split(" ")[2].lower() == "true":
+                    newoption = True
+                setOption(msg.split(" ")[1].lower(), newoption)
+                print("Changed option.")
         elif msg == "update":
             if getOption("colors"):
                 print(Fore.RED + "This action requires Git, do you have it installed?")
