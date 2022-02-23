@@ -1,3 +1,4 @@
 {
-    "colors": true
+    "colors": true,
+    "browser_automaximize": true
 }

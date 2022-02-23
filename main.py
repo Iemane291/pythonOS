@@ -43,8 +43,11 @@ while True is not False:
                     newoption = False
                 elif msg.split(" ")[2].lower() == "true":
                     newoption = True
-                setOption(msg.split(" ")[1].lower(), newoption)
-                print("Changed option.")
+                if getOption(msg.split(" ")[1].lower()) is not None:
+                    setOption(msg.split(" ")[1].lower(), newoption)
+                    print("Changed option.")
+                else:
+                    print("That is not a valid option.")
         elif msg == "update":
             if getOption("colors"):
                 print(Fore.RED + "This action requires Git, do you have it installed?")
@@ -68,7 +71,8 @@ while True is not False:
                     self.browser = QWebEngineView()
                     self.browser.setUrl(QUrl("https://google.com"))
                     self.setCentralWidget(self.browser)
-                    self.showMaximized()
+                    if getOption("browser_automaximize"):
+                        self.showMaximized()
 
                     navbar = QToolBar()
                     self.addToolBar(navbar)
@@ -109,7 +113,7 @@ while True is not False:
             QApplication.setApplicationName("Chungle")
             window = MainWindow()
             app.exec_()
-        else:
+        elif bool(msg) is not False:
             print(msg + " is not a command.")
     except Exception as e:
         if getOption("colors"):
