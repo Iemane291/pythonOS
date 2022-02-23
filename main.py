@@ -2,6 +2,7 @@ import os
 import subprocess
 import colorama
 import json
+import time
 
 from datetime import datetime
 from colorama import Fore, Back, Style
@@ -18,6 +19,12 @@ def getOption(option):
         return data.get(option)
 
 
+subprocess.run("clear" if os.name == "posix" else "cls")
+print("ChungOS Rewrite")
+print("v0.0.1")
+print(Fore.YELLOW + "Loading...")
+
+
 def setOption(optionName, option):
     weirdPath = Path("data")
     with open(weirdPath / "settings.json", "r") as f:
@@ -27,6 +34,9 @@ def setOption(optionName, option):
         json.dump(data, f)
 
 
+time.sleep(0.5)
+
+subprocess.run("clear" if os.name != "nt" else "cls")
 while True is not False:
     try:
         msg = input(os.getcwd() + " >>> ").lower()
