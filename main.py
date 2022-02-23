@@ -43,7 +43,7 @@ while True is not False:
         if msg == "time":
             print(datetime.now())
         elif msg.startswith("change"):
-            if msg.split(" ")[1] == "--help":
+            if "--help" in msg.split(" "):
                 print(
                     "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind."
                 )
