@@ -75,6 +75,11 @@ while True is not False:
                 os.system("python3 main.py")
         elif msg == "exit":
             exit()
+        elif msg == "memory":
+            from psutil import Process
+
+            curMemory = Process(os.getpid())
+            print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
         elif msg == "browser":
             import sys
             from PyQt5.QtWidgets import *
