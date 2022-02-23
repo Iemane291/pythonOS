@@ -49,9 +49,15 @@ while True is not False:
                 )
             else:
                 newoption = None
-                if msg.split(" ")[2].lower() == "false":
+                if (
+                    msg.split(" ")[2].lower() == "false"
+                    or msg.split(" ")[2].lower() == "on"
+                ):
                     newoption = False
-                elif msg.split(" ")[2].lower() == "true":
+                elif (
+                    msg.split(" ")[2].lower() == "true"
+                    or msg.split(" ")[2].lower() == "off"
+                ):
                     newoption = True
                 if getOption(msg.split(" ")[1].lower()) is not None:
                     setOption(msg.split(" ")[1].lower(), newoption)
