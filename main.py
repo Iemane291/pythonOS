@@ -60,59 +60,70 @@ while True is not False:
         elif msg == "exit":
             exit()
         elif msg == "browser":
-            import sys
-            from PyQt5.QtWidgets import *
-            from PyQt5.QtWebEngineWidgets import *
-            from PyQt5.QtCore import *
+            try:
+                import sys
+                from PyQt5.QtWidgets import *
+                from PyQt5.QtWebEngineWidgets import *
+                from PyQt5.QtCore import *
 
-            class MainWindow(QMainWindow):
-                def __init__(self):
-                    super(MainWindow, self).__init__()
-                    self.browser = QWebEngineView()
-                    self.browser.setUrl(QUrl("https://google.com"))
-                    self.setCentralWidget(self.browser)
-                    if getOption("browser_automaximize"):
-                        self.showMaximized()
+                class MainWindow(QMainWindow):
+                    def __init__(self):
+                        super(MainWindow, self).__init__()
+                        self.setWindowTitle("Revrit")
+                        self.browser = QWebEngineView()
+                        self.browser.setUrl(QUrl("https://google.com"))
+                        self.setCentralWidget(self.browser)
+                        if getOption("browser_automaximize"):
+                            self.showMaximized()
+                        else:
+                            self.setFixedSize(15)
 
-                    navbar = QToolBar()
-                    self.addToolBar(navbar)
+                        navbar = QToolBar()
+                        self.addToolBar(navbar)
 
-                    back_btn = QAction("Back", self)
-                    back_btn.triggered.connect(self.browser.back)
-                    navbar.addAction(back_btn)
+                        back_btn = QAction("Back", self)
+                        back_btn.triggered.connect(self.browser.back)
+                        navbar.addAction(back_btn)
 
-                    forward_btn = QAction("Foward", self)
-                    forward_btn.triggered.connect(self.browser.forward)
-                    navbar.addAction(forward_btn)
+                        forward_btn = QAction("Foward", self)
+                        forward_btn.triggered.connect(self.browser.forward)
+                        navbar.addAction(forward_btn)
 
-                    reload_btn = QAction("Reload", self)
-                    reload_btn.triggered.connect(self.browser.reload)
-                    navbar.addAction(reload_btn)
+                        reload_btn = QAction("Reload", self)
+                        reload_btn.triggered.connect(self.browser.reload)
+                        navbar.addAction(reload_btn)
 
-                    home_btn = QAction("Home", self)
-                    home_btn.triggered.connect(self.navigate_home)
-                    navbar.addAction(home_btn)
+                        home_btn = QAction("Home", self)
+                        home_btn.triggered.connect(self.navigate_home)
+                        navbar.addAction(home_btn)
 
-                    self.url_bar = QLineEdit()
-                    self.url_bar.returnPressed.connect(self.nav_url)
-                    navbar.addWidget(self.url_bar)
+                        self.url_bar = QLineEdit()
+                        self.url_bar.returnPressed.connect(self.nav_url)
+                        navbar.addWidget(self.url_bar)
 
-                def navigate_home(self):
-                    self.browser.setUrl(QUrl("https://google.com"))
+                    def navigate_home(self):
+                        self.browser.setUrl(QUrl("https://google.com"))
 
-                def nav_url(self):
-                    url = self.url_bar.text()
-                    if url[0:7] != "https://":
-                        self.browser.setUrl(QUrl("https://" + url))
-                    else:
-                        self.browser.setUrl(QUrl(url))
-                        for i in range(2):
-                            print(url)
+                    def nav_url(self):
+                        url = self.url_bar.text()
+                        if url[0:7] != "https://":
+                            self.browser.setUrl(QUrl("https://" + url))
+                        else:
+                            self.browser.setUrl(QUrl(url))
+                            for i in range(2):
+                                print(url)
 
-            app = QApplication(sys.argv)
-            QApplication.setApplicationName("Chungle")
-            window = MainWindow()
-            app.exec_()
+                app = QApplication(sys.argv)
+                QApplication.setApplicationName("Revrit")
+                window = MainWindow()
+                app.exec_()
+            except Exception as e:
+                if getOption("colors"):
+                    print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+                    app.quit()
+                else:
+                    print("Error: " + str(e))
+                    app.quit()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
     except Exception as e:
