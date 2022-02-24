@@ -7,6 +7,7 @@ import time
 from datetime import datetime
 from colorama import Fore, Back, Style
 from pathlib import Path
+from platform import system as usersOS
 
 colorama.init(autoreset=True)
 
@@ -72,7 +73,7 @@ while True is not False:
             confirm = input().lower()
             if confirm == "y":
                 os.system("git pull origin main")
-                os.system("python3 main.py")
+                os.system("python3 main.py" if usersOS == "Darwin" else "py Main.py")
         elif msg == "exit":
             exit()
         elif msg == "memory":
