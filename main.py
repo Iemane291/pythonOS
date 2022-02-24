@@ -73,7 +73,7 @@ while True is not False:
             confirm = input().lower()
             if confirm == "y":
                 os.system("git pull origin main")
-                os.system("python3 main.py" if usersOS == "Darwin" else "py Main.py")
+                os.system("python3 main.py" if usersOS() == "Darwin" else "py Main.py")
         elif msg == "exit":
             exit()
         elif msg == "memory":
