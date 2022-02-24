@@ -10,7 +10,7 @@ ChungOS rewrite was made by me
 # Installation
 First install [Python 3.10.0](https://python.org/downloads) or higher.
 
-Then clone this repository with Git by copying the link when you click the code button and opening a terminal and typing in `git clone thelinkyougot` or click the code button and download the zip instead and extract it.
+Then clone this repository with Git by going to the terminal and typing `git clone https://github.com/Iemane291/chungos_rewrite.git` (make sure you have Git installed) or click the code button and download the zip instead and extract it.
 
 Go to the terminal and change directory to the repository folder.
 
