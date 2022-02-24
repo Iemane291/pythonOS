@@ -32,7 +32,7 @@ def setOption(optionName, option):
         data = json.load(f)
         data[optionName] = option
     with open(weirdPath / "settings.json", "w") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
 
 time.sleep(0.5)
