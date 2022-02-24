@@ -91,6 +91,9 @@ while True is not False:
             if confirm == "y":
                 os.system("git pull origin main")
                 os.system("python3 main.py" if usersOS() == "Darwin" else "py Main.py")
+            elif confirm == "n" and not getOption("security"):
+                from webbrowser import open_new_tab
+                open_new_tab('https://git-scm.com/downloads')
         elif msg == "exit":
             exit()
         elif msg == "memory":
