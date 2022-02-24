@@ -103,9 +103,11 @@ while True is not False:
             from PyQt5.QtWidgets import *
             from PyQt5.QtWebEngineWidgets import *
             from PyQt5.QtCore import *
+            from PyQt5.QtGui import QIcon, QKeySequence
 
             class MainWindow(QMainWindow):
                 def __init__(self):
+
                     super(MainWindow, self).__init__()
                     self.setWindowTitle("Revrit")
                     self.browser = QWebEngineView()
@@ -132,9 +134,14 @@ while True is not False:
                     home_btn.triggered.connect(self.navigate_home)
                     navbar.addAction(home_btn)
 
+                    quit_btn = QAction("Quit", self)
+                    quit_btn.triggered.connect(self.close)
+                    navbar.addAction(quit_btn)
+
                     self.url_bar = QLineEdit()
                     self.url_bar.returnPressed.connect(self.nav_url)
                     navbar.addWidget(self.url_bar)
+
 
                 def navigate_home(self):
                     self.browser.setUrl(QUrl("https://google.com"))
@@ -151,6 +158,7 @@ while True is not False:
             app = QApplication(sys.argv)
             QApplication.setApplicationName("Revrit")
             window = MainWindow()
+            app.setWindowIcon(QIcon("chungos_icon.png"))
             app.exec_()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
