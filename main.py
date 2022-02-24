@@ -40,7 +40,14 @@ time.sleep(0.5)
 subprocess.run("clear" if os.name != "nt" else "cls")
 while True is not False:
     try:
-        msg = input(os.getcwd() + " >>> ").lower()
+        match getOption("input-color"):
+            case "white":
+
+                msg = input(Fore.WHITE + os.getcwd() + " >>> ").lower()
+            case "red":
+                msg = input(Fore.RED + os.getcwd() + " >>> ").lower()
+            case _:
+                msg = input(os.getcwd() + " >>> ")
         if msg == "time":
             print(datetime.now())
         elif msg.startswith("change"):
@@ -61,10 +68,20 @@ while True is not False:
                 ):
                     newoption = True
                 if getOption(msg.split(" ")[1].lower()) is not None:
-                    setOption(msg.split(" ")[1].lower(), newoption)
-                    print("Changed option.")
+                    if msg.split(" ")[1].lower() != "input-color":
+                        setOption(msg.split(" ")[1].lower(), newoption)
+                        print("Changed option.")
+                    else:
+                        setOption(msg.split(" ")[1].lower(), msg.split(" ")[2].lower())
                 else:
                     print("That is not a valid option.")
+                    match msg.split(" ")[1].lower():
+                        case "input-color":
+                            setOption("input-color", "white")
+                        case "colors":
+                            setOption("colors", True)
+                        case _:
+                            pass
         elif msg == "update":
             if getOption("colors"):
                 print(Fore.RED + "This action requires Git, do you have it installed?")
