@@ -8,7 +8,7 @@ ChungOS rewrite was made by me
 
 
 # Installation
-First install [Python 3.9](https://python.org/downloads) or higher.
+First install [Python 3.10.0](https://python.org/downloads) or higher.
 
 Then clone this repository with Git by copying the link when you click the code button and opening a terminal and typing in `git clone thelinkyougot` or click the code button and download the zip instead and extract it.
 
