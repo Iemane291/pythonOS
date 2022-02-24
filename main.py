@@ -171,6 +171,21 @@ while True is not False:
             app.exec_()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
+        elif msg == "run-lua":
+            from lupa import LuaRuntime
+            lua = LuaRuntime()
+            os.chdir("scripts")
+            for luathing in os.listdir():
+                with open(luathing, "r") as f:
+                    lua.eval(f.read())
+        elif msg.startswith("run-luafile"):
+            from lupa import LuaRuntime
+            lua = LuaRuntime()
+            os.chdir("scripts")
+            for luathing in os.listdir():
+                if msg.split(" ")[1] == luathing:
+                    with open(msg.split(" ")[1], "r") as f:
+                        lua.eval(f.read())
     except Exception as e:
         if getOption("colors"):
             print(Fore.RED + "Error: " + Fore.WHITE + str(e))
