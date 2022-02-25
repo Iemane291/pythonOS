@@ -42,12 +42,20 @@ time.sleep(0.5)
 subprocess.run("clear" if os.name != "nt" else "cls")
 while True is not False:
     try:
-        match getOption("input-color"):
+        match getOption("input-color").lower():
             case "white":
 
                 msg = input(Fore.WHITE + os.getcwd() + " >>> ").lower()
             case "red":
                 msg = input(Fore.RED + os.getcwd() + " >>> ").lower()
+            case "blue":
+                msg = input(Fore.BLUE + os.getcwd() + " >>> ").lower()
+            case "yellow":
+                msg = input(Fore.YELLOW + os.getcwd() + " >>> ").lower()
+            case "green":
+                msg = input(Fore.GREEN + os.getcwd() + " >>> ").lower()
+            case "magenta":
+                msg = input(Fore.MAGENTA + os.getcwd() + " >>> ").lower()
             case _:
                 msg = input(os.getcwd() + " >>> ")
         if msg == "time":
