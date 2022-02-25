@@ -1,15 +1,18 @@
-# ChungOS Rewrite
+<img width="707" alt="Screen Shot 2022-02-25 at 7 18 32 PM" src="https://user-images.githubusercontent.com/83344675/155740353-0e787216-f9af-4f76-aafb-26f8a9663309.png">
 
-ChungOS Rewrite is a rewrite of ChungOS, I was a programmer for ChungOS too but it was too messy to work with so I rewrote it.
 
-In my opinion the rewrite turned out better than I expected. You can view it on [Github](https://github.com/Iemane291/chungos_rewrite) right now. 
 
-It's version is v0.0.1
+# What is this?
+
+This used to be a [ChungOS](https://github.com/ArezalGame89/ChungOS) rewrite but it's implemented too much of it's own features so I renamed it.
+
+This is an open-source modification/rewrite of ChungOS, aiming to be more usable and better than ChungOS.
+
 
 # Installation
-First install [Python 3.9](https://python.org/downloads) or higher.
+First install [Python 3.10.0](https://python.org/downloads) or higher.
 
-Then clone this repository with Git by copying the link when you click the code button and opening a terminal and typing in `git clone thelinkyougot` or click the code button and download the zip instead and extract it.
+Then clone this repository with [Git](https://git-scm.com/downloads/) by going to the terminal and typing `git clone https://github.com/Iemane291/pythonOS.git` (make sure you have [Git](https://git-scm.com/downloads) installed) or click the code button and download the zip instead and extract it.
 
 Go to the terminal and change directory to the repository folder.
 
@@ -25,4 +28,4 @@ Run one of these commands depending on your OS:
 
 - Mac: `python3 main.py`
 
-- Linux: Ditto 
+- Linux: `python main.py`
