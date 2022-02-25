@@ -22,7 +22,10 @@ def getOption(option):
 subprocess.run("clear" if os.name == "posix" else "cls")
 print("ChungOS Rewrite")
 print("v0.0.1")
-print(Fore.YELLOW + "Loading...")
+if getOption("colors"):
+    print(Fore.YELLOW + "Loading...")
+else:
+    print("Loading..")
 
 
 def setOption(optionName, option):
@@ -49,6 +52,7 @@ while True is not False:
                 msg = input(os.getcwd() + " >>> ")
         if msg == "time":
             print(datetime.now())
+        
         elif msg == "run-lua":
             from lupa import LuaRuntime
             lua = LuaRuntime()
@@ -128,13 +132,16 @@ while True is not False:
             elif confirm == "n" and not getOption("security"):
                 from webbrowser import open_new_tab
                 open_new_tab('https://git-scm.com/downloads')
+
         elif msg == "exit":
             exit()
+
         elif msg == "memory":
             from psutil import Process
 
             curMemory = Process(os.getpid())
             print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+
         elif msg == "browser":
             import sys
             from PyQt5.QtWidgets import *
@@ -199,6 +206,8 @@ while True is not False:
             app.exec_()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
+
+
         elif msg.startswith("run-luafile"):
             from lupa import LuaRuntime
             lua = LuaRuntime()
