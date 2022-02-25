@@ -12,7 +12,7 @@ This is an open-source modification/rewrite of ChungOS, aiming to be more usable
 # Installation
 First install [Python 3.10.0](https://python.org/downloads) or higher.
 
-Then clone this repository with Git by going to the terminal and typing `git clone https://github.com/Iemane291/pythonOS.git` (make sure you have Git installed) or click the code button and download the zip instead and extract it.
+Then clone this repository with [Git](https://git-scm.com/downloads/) by going to the terminal and typing `git clone https://github.com/Iemane291/pythonOS.git` (make sure you have [Git](https://git-scm.com/downloads) installed) or click the code button and download the zip instead and extract it.
 
 Go to the terminal and change directory to the repository folder.
 
