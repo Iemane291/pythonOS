@@ -33,4 +33,5 @@ Run one of these commands depending on your OS:
 # Credits
 
 [Mini](https://twitter.com/minilol69) - Former owner of ChungOS | pythonOS Programmer | pythonOS Owner
+
 [ArezalGame89](mailto:aradzpfa@gmail.com) - Owner of ChungOS | ChungOS Programmer 
