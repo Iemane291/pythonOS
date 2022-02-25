@@ -103,23 +103,37 @@ while True is not False:
                         case _:
                             pass
         elif msg == "update":
-            if getOption("colors"):
-                print(Fore.RED + "This action requires Git, do you have it installed?")
-            else:
-                print("This action requires Git, do you have it installed?")
-            confirm = input().lower()
-            if confirm == "y":
-                os.system("git pull origin main --quiet")
-                match usersOS():
-                    case 'Darwin': 
-                        os.system("python3 main.py")
-                    case 'Windows':
-                        os.system("py main.py")
-                    case 'Linux':
-                        os.system("python main.py")
-            elif confirm == "n" and not getOption("security"):
-                from webbrowser import open_new_tab
-                open_new_tab('https://git-scm.com/downloads')
+            if getOption("git-installed") == "UNDEFINED" or not getOption("git-installed"):
+                if getOption("colors"):
+                    print(Fore.RED + "This action requires Git, do you have it installed?")
+                else:
+                    print("This action requires Git, do you have it installed?")
+                confirm = input().lower()
+                if confirm == "y":
+                    os.system("git pull origin main --quiet")
+                    setOption("git-installed", True)
+                    match usersOS():
+                        case 'Darwin': 
+                            os.system("python3 main.py")
+                        case 'Windows':
+                            os.system("py main.py")
+                        case 'Linux':
+                            os.system("python main.py")
+                elif confirm == "n":
+                    if not getOption("security"):
+                        from webbrowser import open_new_tab
+                        open_new_tab('https://git-scm.com/downloads')
+                    setOption("git-installed", False)
+            elif getOption("git-installed"):
+                    os.system("git pull origin main --quiet")
+                    match usersOS():
+                            case 'Darwin': 
+                                os.system("python3 main.py")
+                            case 'Windows':
+                                os.system("py main.py")
+                            case 'Linux':
+                                os.system("python main.py")
+            
 
         elif msg == "exit":
             exit()

@@ -1,5 +1,6 @@
 {
     "colors": true,
     "input-color": "white",
-    "security": true
+    "security": true,
+    "git-installed": true
 }
