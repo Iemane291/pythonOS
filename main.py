@@ -178,6 +178,7 @@ while True is not False:
             for luathing in os.listdir():
                 with open(luathing, "r") as f:
                     lua.eval(f.read())
+            os.chdir("..")
         elif msg.startswith("run-luafile"):
             from lupa import LuaRuntime
             lua = LuaRuntime()
@@ -186,6 +187,7 @@ while True is not False:
                 if msg.split(" ")[1] == luathing:
                     with open(msg.split(" ")[1], "r") as f:
                         lua.eval(f.read())
+            os.chdir("..")
     except Exception as e:
         if getOption("colors"):
             print(Fore.RED + "Error: " + Fore.WHITE + str(e))
