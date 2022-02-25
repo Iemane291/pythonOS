@@ -1,3 +1,7 @@
+<img width="707" alt="Screen Shot 2022-02-25 at 7 18 32 PM" src="https://user-images.githubusercontent.com/83344675/155740353-0e787216-f9af-4f76-aafb-26f8a9663309.png">
+
+
+
 # What is this?
 
 Well, this is a rewrite of ChungOS, aiming to be better than chungOS
