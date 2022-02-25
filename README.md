@@ -29,3 +29,8 @@ Run one of these commands depending on your OS:
 - Mac: `python3 main.py`
 
 - Linux: `python main.py`
+
+# Credits
+
+[Mini](https://twitter.com/minilol69) - Former owner of ChungOS | pythonOS Programmer | pythonOS Owner
+[ArezalGame89](mailto:aradzpfa@gmail.com) - Owner of ChungOS | ChungOS Programmer 
