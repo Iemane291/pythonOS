@@ -109,7 +109,7 @@ while True is not False:
                 print("This action requires Git, do you have it installed?")
             confirm = input().lower()
             if confirm == "y":
-                os.system("git pull origin main")
+                os.system("git pull origin main --quiet")
                 match usersOS():
                     case 'Darwin': 
                         os.system("python3 main.py")
