@@ -20,7 +20,7 @@ def getOption(option):
 
 
 subprocess.run("clear" if os.name == "posix" else "cls")
-print("ChungOS Rewrite")
+print("pythonOS")
 print("v0.0.1")
 if getOption("colors"):
     print(Fore.YELLOW + "Loading...")
