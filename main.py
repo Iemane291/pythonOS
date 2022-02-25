@@ -204,7 +204,7 @@ while True is not False:
             app = QApplication(sys.argv)
             QApplication.setApplicationName("Revrit")
             window = MainWindow()
-            app.setWindowIcon(QIcon("chungos_icon.png"))
+            app.setWindowIcon(QIcon("revritIcon.png"))
             app.exec_()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
