@@ -28,4 +28,4 @@ Run one of these commands depending on your OS:
 
 - Mac: `python3 main.py`
 
-- Linux: Ditto 
+- Linux: `python main.py`
