@@ -2,3 +2,4 @@ colorama
 PyQt5
 PyQtWebEngine
 psutil
+inquirer
