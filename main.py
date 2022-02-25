@@ -92,11 +92,11 @@ while True is not False:
                 os.system("git pull origin main")
                 match usersOS():
                     case 'Darwin': 
-                        subprocess.run("python3 main.py")
+                        os.system("python3 main.py")
                     case 'Windows':
-                        subprocess.run("py main.py")
+                        os.system("py main.py")
                     case 'Linux':
-                        subprocess.run("python main.py")
+                        os.system("python main.py")
             elif confirm == "n" and not getOption("security"):
                 from webbrowser import open_new_tab
                 open_new_tab('https://git-scm.com/downloads')
