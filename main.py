@@ -61,27 +61,7 @@ while True is not False:
                 with open(luathing, "r") as f:
                     lua.eval(f.read())
             os.chdir("..")
-        elif msg == "xtension create":
-            try:
-                os.makedirs("mods/packages")
-            except FileExistsError:
-                pass
-            finally:
-                filename = input("Enter the name of the extension (leave blank to cancel): ")
-                coolPath = Path("mods/packages/")
-                if bool(filename) is not False:
-                    print("Is the name "+filename+"?")
-                    confirm = input().lower()
-                    if confirm == "y":
-                        import inquirer
-                        print("Ok, let's continue.")
-                        time.sleep(1)
-                        question1 = [inquirer.List('extension-type', message = "What is the type of your extension? ", choices=["Command Extension"])]
-                        extensionType = inquirer.prompt(question1)
-                        if extensionType.get("extension-type") == "Command Extension":
-                            print("Creating files..")
-                            with open(str(coolPath) + "/"+filename+".py", "w+") as ext:
-                                ext.write("import os\nfor i in range(2):\n\tos.chdir(\"..\")\nfrom main import msg\n\nif msg == \"yourtext\":\n\tprint(\"Hello World\")")
+        
         elif msg.startswith("change"):
             if "--help" in msg.split(" "):
                 print(
