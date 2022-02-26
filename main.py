@@ -65,7 +65,6 @@ def setOption(optionName, option):
         json.dump(data, f, indent=4)
 
 
-time.sleep(0.5)
 
 os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
