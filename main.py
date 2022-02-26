@@ -1,13 +1,17 @@
 
 import os
-os.system("clear" if os.name == "posix" else "cls")
 import colorama
+
+os.system("clear" if os.name == "posix" else "cls")
+
 colorama.init(autoreset=True)
 print("pythonOS\nv0.0.3a\nLoading..")
 
 import json
 import time
 import sys
+
+# mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
 from colorama import Fore, Back, Style
@@ -20,6 +24,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon, QKeySequence
 
 from lupa import LuaRuntime
+from re import search as searchString
 
 
 def update():
@@ -92,10 +97,44 @@ while True is not False:
                     lua.eval(f.read())
             os.chdir("..")
         
+        elif msg == "pylang":
+            print("Pylang 1.0")
+            while False is not True:
+                try:
+                    match getOption("input-color"):
+                        case "red":
+                            shit = input(Fore.RED + ">>> ")
+                        case "white":
+                            shit = input(Fore.WHITE + ">>> ")
+                        case "magenta":
+                            shit = input(Fore.MAGENTA + ">>> ")
+                        case "green":
+                            shit = input(Fore.GREEN + ">>> ")
+                        case "yellow":
+                            shit = input(Fore.YELLOW + ">>> ")
+                        case "blue":
+                            shit = input(Fore.BLUE + ">>> ")
+                        case _:
+                            shit = input(">>> ")
+                    match shit: # using match instead of if statements, can't do it with msg for some reason lmaoaoaoaoaoaaooaa
+                        case "quit()":
+                            break
+                    
+                        case _:
+                            if shit.startswith("log("):
+                                codemsg = searchString(r"log\((*.?)\)", shit).group(1)
+                                print(codemsg)
+                except Exception as exc:
+                    if getOption("colors"):
+                        print(Fore.RED + "Error: " + Fore.WHITE + str(exc))
+                    else:
+                        print("Error: "+str(exc))
+
+
         elif msg.startswith("change"):
             if "--help" in msg.split(" "):
                 print(
-                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind."
+                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\ninput-color - This changes the input color for typing stuff, possible options for this are: red, green, blue, magenta, yellow, white\ngit-installed - Whenever you run the update command, if this option is \"y\" then it won't ask if you have git installed, else it will ask.\nsecurity - This adds a little security features, it's recommended to turn this on, even if you think it does nothing."
                 )
             else:
                 newoption = None
