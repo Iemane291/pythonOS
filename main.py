@@ -19,7 +19,7 @@ def getOption(option):
         return data.get(option)
 
 
-subprocess.run("clear" if os.name == "posix" else "cls")
+os.system("clear" if os.name == "posix" else "cls")
 print("pythonOS")
 print("v0.0.1")
 if getOption("colors"):
@@ -39,7 +39,7 @@ def setOption(optionName, option):
 
 time.sleep(0.5)
 
-subprocess.run("clear" if os.name != "nt" else "cls")
+os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
     try:
         match getOption("input-color").lower():
@@ -113,7 +113,7 @@ while True is not False:
                     os.system("git pull origin main --quiet")
                     setOption("git-installed", True)
                     match usersOS():
-                        case 'Darwin': 
+                        case 'Darwin':
                             os.system("python3 main.py")
                         case 'Windows':
                             os.system("py main.py")
@@ -204,7 +204,7 @@ while True is not False:
             app = QApplication(sys.argv)
             QApplication.setApplicationName("Revrit")
             window = MainWindow()
-            app.setWindowIcon(QIcon("revritIcon.png"))
+            app.setWindowIcon(QIcon("images/revritIcon.png"))
             app.exec_()
         elif bool(msg) is not False:
             print(msg + " is not a command.")
