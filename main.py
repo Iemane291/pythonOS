@@ -1,15 +1,38 @@
+
 import os
-import subprocess
+os.system("clear" if os.name == "posix" else "cls")
 import colorama
+colorama.init(autoreset=True)
+print("pythonOS\nv0.0.3a\nLoading..")
+
 import json
 import time
+import sys
 
 from datetime import datetime
 from colorama import Fore, Back, Style
 from pathlib import Path
 from platform import system as usersOS
 
-colorama.init(autoreset=True)
+from PyQt5.QtWidgets import *
+from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon, QKeySequence
+
+from lupa import LuaRuntime
+
+
+def update():
+    os.system("git pull origin main --quiet")
+    match usersOS():
+        case 'Darwin': 
+            os.system("python3 main.py")
+
+        case 'Windows':
+            os.system("py main.py")
+
+        case 'Linux':
+            os.system("python main.py")
 
 
 def getOption(option):
@@ -21,9 +44,9 @@ def getOption(option):
 
 os.system("clear" if os.name == "posix" else "cls")
 print("pythonOS")
-print("v0.0.1")
+print("v0.0.3a")
 if getOption("colors"):
-    print(Fore.YELLOW + "Loading...")
+    print(Fore.YELLOW + "Loading..")
 else:
     print("Loading..")
 
@@ -62,7 +85,6 @@ while True is not False:
             print(datetime.now())
         
         elif msg == "run-lua":
-            from lupa import LuaRuntime
             lua = LuaRuntime()
             os.chdir("scripts")
             for luathing in os.listdir():
@@ -110,29 +132,15 @@ while True is not False:
                     print("This action requires Git, do you have it installed?")
                 confirm = input().lower()
                 if confirm == "y":
-                    os.system("git pull origin main --quiet")
                     setOption("git-installed", True)
-                    match usersOS():
-                        case 'Darwin':
-                            os.system("python3 main.py")
-                        case 'Windows':
-                            os.system("py main.py")
-                        case 'Linux':
-                            os.system("python main.py")
+                    update()
                 elif confirm == "n":
                     if not getOption("security"):
                         from webbrowser import open_new_tab
                         open_new_tab('https://git-scm.com/downloads')
                     setOption("git-installed", False)
             elif getOption("git-installed"):
-                    os.system("git pull origin main --quiet")
-                    match usersOS():
-                            case 'Darwin': 
-                                os.system("python3 main.py")
-                            case 'Windows':
-                                os.system("py main.py")
-                            case 'Linux':
-                                os.system("python main.py")
+                    update()
             
 
         elif msg == "exit":
@@ -145,11 +153,6 @@ while True is not False:
             print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
 
         elif msg == "browser":
-            import sys
-            from PyQt5.QtWidgets import *
-            from PyQt5.QtWebEngineWidgets import *
-            from PyQt5.QtCore import *
-            from PyQt5.QtGui import QIcon, QKeySequence
 
             class MainWindow(QMainWindow):
                 def __init__(self):
@@ -202,8 +205,10 @@ while True is not False:
                             print(url)
 
             app = QApplication(sys.argv)
-            QApplication.setApplicationName("Revrit")
             window = MainWindow()
+            QApplication.setApplicationName("Revrit")
+
+
             app.setWindowIcon(QIcon("images/revritIcon.png"))
             app.exec_()
         elif bool(msg) is not False:
@@ -211,7 +216,6 @@ while True is not False:
 
 
         elif msg.startswith("run-luafile"):
-            from lupa import LuaRuntime
             lua = LuaRuntime()
             os.chdir("scripts")
             for luathing in os.listdir():
