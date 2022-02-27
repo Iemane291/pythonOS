@@ -175,13 +175,13 @@ while True is not False:
 
             match usersOS():
                 case 'Darwin':
-                    os.system("python3 program-files/revrit/revrit.py")
+                    os.system("python3 program-files/pyBrowse/pybrowse.py")
                 
                 case 'Windows':
-                    os.system("py program-files/revrit/revrit.py")
+                    os.system("py program-files/pyBrowse/pybrowse.py")
                 
                 case 'Linux':
-                    os.system("python program-files/revrit/revrit.py")
+                    os.system("python program-files/pyBrowse/pybrowse.py")
 
                 
         elif bool(msg) is not False:

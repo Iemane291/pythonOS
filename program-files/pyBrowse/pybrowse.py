@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
 
         super(MainWindow, self).__init__()
-        self.setWindowTitle("Revrit")
+        self.setWindowTitle("pyBrowse")
         self.browser = QWebEngineView()
         self.browser.setUrl(QUrl("https://google.com"))
         self.setCentralWidget(self.browser)
@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 window = MainWindow()
-QApplication.setApplicationName("Revrit")
+QApplication.setApplicationName("pyBrowse")
 
 
 app.setWindowIcon(QIcon("icon.png"))
