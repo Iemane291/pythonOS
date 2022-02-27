@@ -24,7 +24,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon, QKeySequence
 
 from lupa import LuaRuntime
-from re import search as searchString
+from playsound import playsound
 
 
 def update():
@@ -152,6 +152,18 @@ while True is not False:
 
         elif msg == "exit":
             exit()
+
+        elif msg.startswith("pyplay"):
+            if "-bg" in msg.split(" "):
+                if msg.split(" ")[1].endswith(".wav"):
+                    playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
+                else:
+                    print("Oops, that does not look like a .wav file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
+            else:
+                if msg.split(" ")[1].endswith(".wav"):
+                    playsound("pyPlay/sounds/"+msg.split(" ")[1])
+                else:
+                    print("Oops, that does not look like a .wav file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
 
         elif msg == "memory":
             from psutil import Process
