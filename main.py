@@ -170,6 +170,17 @@ while True is not False:
 
             curMemory = Process(os.getpid())
             print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+        
+        elif msg == "pyedit":
+            match usersOS():
+                case 'Darwin':
+                    os.system("python3 program-files/pyEdit/pyedit.py")
+                
+                case 'Windows':
+                    os.system("py program-files/pyEdit/pyedit.py")
+                
+                case 'Linux':
+                    os.system("python program-files/pyEdit/pyedit.py")
 
         elif msg == "browser":
 
