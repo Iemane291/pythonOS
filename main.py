@@ -96,38 +96,7 @@ while True is not False:
                     lua.eval(f.read())
             os.chdir("..")
         
-        elif msg == "pylang":
-            print("Pylang 1.0")
-            while False is not True:
-                try:
-                    match getOption("input-color"):
-                        case "red":
-                            shit = input(Fore.RED + ">>> ")
-                        case "white":
-                            shit = input(Fore.WHITE + ">>> ")
-                        case "magenta":
-                            shit = input(Fore.MAGENTA + ">>> ")
-                        case "green":
-                            shit = input(Fore.GREEN + ">>> ")
-                        case "yellow":
-                            shit = input(Fore.YELLOW + ">>> ")
-                        case "blue":
-                            shit = input(Fore.BLUE + ">>> ")
-                        case _:
-                            shit = input(">>> ")
-                    match shit: # using match instead of if statements, can't do it with msg for some reason lmaoaoaoaoaoaaooaa
-                        case "quit()":
-                            break
-                    
-                        case _:
-                            if shit.startswith("log("):
-                                codemsg = searchString(r"log\((*.?)\)", shit).group(1)
-                                print(codemsg)
-                except Exception as exc:
-                    if getOption("colors"):
-                        print(Fore.RED + "Error: " + Fore.WHITE + str(exc))
-                    else:
-                        print("Error: "+str(exc))
+
 
 
         elif msg.startswith("change"):
