@@ -55,8 +55,6 @@ class MainWindow(QMainWindow):
                 self.browser.setUrl(QUrl("https://" + url))
         else:
             self.browser.setUrl(QUrl(url))
-            for i in range(2):
-                print(url)
 
 
 app = QApplication(sys.argv)
