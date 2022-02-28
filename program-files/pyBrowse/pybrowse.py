@@ -48,8 +48,11 @@ class MainWindow(QMainWindow):
 
     def nav_url(self):
         url = self.url_bar.text()
-        if url[0:7] != "https://":
-            self.browser.setUrl(QUrl("https://" + url))
+        if not url.startswith("https://"):
+            if url.startswith("www"):
+                pass
+            else:
+                self.browser.setUrl(QUrl("https://" + url))
         else:
             self.browser.setUrl(QUrl(url))
             for i in range(2):
