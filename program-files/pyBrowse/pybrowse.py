@@ -41,6 +41,9 @@ class MainWindow(QMainWindow):
 
         self.url_bar = QLineEdit()
         self.url_bar.returnPressed.connect(self.nav_url)
+        self.urlBarShit = self.url_bar.font()
+        self.urlBarShit.setPointSize(11)
+        self.url_bar.setFont(self.urlBarShit)
         navbar.addWidget(self.url_bar)
 
     def navigate_home(self):
