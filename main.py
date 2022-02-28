@@ -10,6 +10,7 @@ print("pythonOS\nv0.0.3a\nLoading..")
 import json
 import time
 import sys
+import inquirer
 
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
@@ -153,17 +154,31 @@ while True is not False:
         elif msg == "exit":
             exit()
 
+        elif msg == "pyplay":
+            soundList = []
+            for i in os.listdir('pyPlay/sounds'):
+                if i != "readme.txt" or i.endswith(".wav") or i.endswith(".mp3"):
+                    soundList.append(i)
+            if len(soundList) < 1:
+                print("You do not have any sounds/songs to play.")
+            else:
+                soundChose = inquirer.prompt([
+                    inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
+                ])
+                playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
+
+
         elif msg.startswith("pyplay"):
             if "-bg" in msg.split(" "):
-                if msg.split(" ")[1].endswith(".wav"):
+                if msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".mp3"):
                     playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
                 else:
-                    print("Oops, that does not look like a .wav file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
+                    print("Oops, that does not look like a .wav or .mp3  file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
             else:
-                if msg.split(" ")[1].endswith(".wav"):
+                if msg.split(" ")[1].endswith(".mp3") or msg.split(" ")[1].endswith(".wav"):
                     playsound("pyPlay/sounds/"+msg.split(" ")[1])
                 else:
-                    print("Oops, that does not look like a .wav file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
+                    print("Oops, that does not look like a .wav or .mp3 file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
 
         elif msg == "memory":
             from psutil import Process
