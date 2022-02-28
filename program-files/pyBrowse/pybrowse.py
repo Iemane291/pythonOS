@@ -50,7 +50,7 @@ class MainWindow(QMainWindow):
         url = self.url_bar.text()
         if not url.startswith("https://"):
             if url.startswith("www"):
-                pass
+                self.browser.setUrl(QUrl(url))
             else:
                 self.browser.setUrl(QUrl("https://" + url))
         else:
