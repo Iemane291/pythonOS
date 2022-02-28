@@ -26,6 +26,7 @@ from PyQt5.QtGui import QIcon, QKeySequence
 
 from lupa import LuaRuntime
 from playsound import playsound
+from webbrowser import open_new_tab as openNewTab
 
 
 def update():
@@ -100,6 +101,7 @@ while True is not False:
 
 
 
+
         elif msg.startswith("change"):
             if "--help" in msg.split(" "):
                 print(
@@ -144,8 +146,7 @@ while True is not False:
                     update()
                 elif confirm == "n":
                     if not getOption("security"):
-                        from webbrowser import open_new_tab
-                        open_new_tab('https://git-scm.com/downloads')
+                        openNewTab('https://git-scm.com/downloads')
                     setOption("git-installed", False)
             elif getOption("git-installed"):
                     update()
