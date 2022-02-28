@@ -8,6 +8,8 @@ This used to be a [ChungOS](https://github.com/ArezalGame89/ChungOS) rewrite but
 
 This is an open-source modification/rewrite of ChungOS, aiming to be more usable and better than ChungOS.
 
+# If you encounter an actual bug...
+Please join the [Discord](https://discord.gg/yGgf95zEdc) server and report it in the issues channel. If you do not have discord, then make an issue in the issues tab.
 
 # Installation
 First install [Python 3.10.0](https://python.org/downloads) or higher.
