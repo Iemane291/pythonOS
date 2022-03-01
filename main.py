@@ -92,11 +92,10 @@ while True is not False:
         
         elif msg == "run-lua":
             lua = LuaRuntime()
-            os.chdir("scripts")
+            thing = Path("scripts")
             for luathing in os.listdir():
-                with open(luathing, "r") as f:
+                with open(thing / luathing, "r") as f:
                     lua.eval(f.read())
-            os.chdir("..")
         
 
 
@@ -185,7 +184,7 @@ while True is not False:
             from psutil import Process
 
             curMemory = Process(os.getpid())
-            print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+            print("Memory in megabytes: " + str(int(curMemory.memory_info().rss / 1e+6)) + "GB")
         
         elif msg == "pyedit":
             match usersOS():
