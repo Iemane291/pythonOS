@@ -92,11 +92,14 @@ while True is not False:
         
         elif msg == "run-lua":
             lua = LuaRuntime()
-            os.chdir("scripts")
-            for luathing in os.listdir():
-                with open(luathing, "r") as f:
-                    lua.eval(f.read())
-            os.chdir("..")
+            weirdPath = Path("scripts")
+            if len(os.listdir("scripts")) > 1:
+                for luaFile in os.listdir("scripts"):
+                    if luaFile.endswith(".lua"):
+                        with open(weirdPath / luaFile, "r") as f:
+                            lua.eval(f.read())
+            else:
+                print("Seems that you have no Lua scripts. Please add one in the \"scripts\" folder.")
         
 
 
@@ -126,7 +129,7 @@ while True is not False:
                     else:
                         setOption(msg.split(" ")[1].lower(), msg.split(" ")[2].lower())
                 else:
-                    print("That is not a valid option.")
+                    print("That is not an existing option, please read the settings.json or do \"change --help\" to see what options you can change.")
                     match msg.split(" ")[1].lower():
                         case "input-color":
                             setOption("input-color", "white")
@@ -154,6 +157,9 @@ while True is not False:
 
         elif msg == "exit":
             exit()
+
+        elif msg == "privacy":
+            print(f"We keep all of your private information unused, we don't use them at all. You can even check the code right now.\n\nAll we use is multiple libraries, Python {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} and that is it.\n\nIf you still do not feel secure/safe using this, turn on the security option. ")
 
         elif msg == "pyplay":
             soundList = []
@@ -224,7 +230,9 @@ while True is not False:
                         lua.eval(f.read())
             os.chdir("..")
     except Exception as e:
-        if getOption("colors"):
-            print(Fore.RED + "Error: " + Fore.WHITE + str(e))
-        else:
-            print("Error: " + str(e))
+            if getOption("colors"):
+                print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+            else:
+                print("Error: " + str(e))
+
+
