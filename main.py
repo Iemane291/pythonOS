@@ -179,10 +179,20 @@ while True is not False:
             if len(soundList) < 1:
                 print("You do not have any sounds/songs to play.")
             else:
-                soundChose = inquirer.prompt([
-                    inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
-                ])
-                playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
+                if getOption("colors"):
+                    soundChose = inquirer.prompt([
+                        inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
+                    ])
+                    playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
+                else:
+                    print("Enter the filename of the sound file you want to play")
+                    print("\n".join(soundList))
+                    soundChose = input()
+                    if soundChose.endswith(".wav") or soundChose.endswith(".mp3"):
+                        if soundChose not in soundList:
+                            print("That doesn't seem like a valid sound file (that is an .wav or .mp3 file).")
+                        else:
+                            playsound("pyPlay/sounds/"+soundChose)
 
 
         elif msg.startswith("pyplay "):
