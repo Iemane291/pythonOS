@@ -184,7 +184,7 @@ while True is not False:
             from psutil import Process
 
             curMemory = Process(os.getpid())
-            print("Memory in megabytes: " + str(int(curMemory.memory_info().rss / 1e+6)) + "GB")
+            print("Memory in megabytes: " + str(int(curMemory.memory_info().rss / 1000)) + "MB")
         
         elif msg == "pyedit":
             match usersOS():
