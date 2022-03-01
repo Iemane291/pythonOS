@@ -27,6 +27,11 @@ from PyQt5.QtGui import QIcon, QKeySequence
 from lupa import LuaRuntime
 from playsound import playsound
 from webbrowser import open_new_tab as openNewTab
+from rich.markdown import Markdown
+
+from rich.console import Console
+
+console = Console()
 
 
 def update():
@@ -102,7 +107,11 @@ while True is not False:
                 print("Seems that you have no Lua scripts. Please add one in the \"scripts\" folder.")
         
 
-
+        elif msg == "readme":
+            if getOption("colors"):
+                with open("README.md", "r") as mdFile:
+                    textRead = Markdown(mdFile.read())
+                console.print(textRead)
 
 
         elif msg.startswith("change"):

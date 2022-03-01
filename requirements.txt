@@ -4,3 +4,4 @@ PyQtWebEngine
 psutil
 inquirer
 playsound
+rich
