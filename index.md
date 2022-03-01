@@ -1,31 +1,90 @@
-<img width="707" alt="Screen Shot 2022-02-25 at 7 18 32 PM" src="https://user-images.githubusercontent.com/83344675/155740353-0e787216-f9af-4f76-aafb-26f8a9663309.png">
+pythonOS Alpha 3.0.2
+---
+[![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
+[![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
+[![GitHub Wiki](https://img.shields.io/badge/project-wiki-ff69b4.svg)](https://github.com/Iemane291/pythonOS/wiki/Home)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Iemane291/pythonOS/master/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/Iemane291/pythonOS/total.svg?maxAge=2592000)](https://github.com/Iemane291/pythonOS/releases)
 
 
+pythonOS is based off of [ChungOS](https://github.com/ArezalGame89/ChungOS), pythonOS is the more better and optimized version of [ChungOS](https://github.com/ArezalGame89/ChungOS).
 
-# What is this?
+pythonOS features:
+- Lua script support using [lupa](https://pypi.org/project/lupa)
+- Simple and colorful interface using [colorama](https://pypi.org/project/colorama) and [inquirer](https://pypi.org/project/inquirer)
+- Changeable options that change your experience. 
+- Much, much more (is yet to come).
 
-This used to be a [ChungOS](https://github.com/ArezalGame89/ChungOS) rewrite but it's implemented too much of it's own features so I renamed it.
+Currently, we are on version 3.0.2A
 
-This is an open-source modification/rewrite of ChungOS, aiming to be more usable and better than ChungOS.
+## Getting Started
+
+### As a first-time user:
+So what you'll need to install is:
+
+- [Python 3.10.0](https://python.org/downloads/) or a higher version.
+- [Git-scm](https://git-scm.com/download)
 
 
-# Installation
-First install [Python 3.10.0](https://python.org/downloads) or higher.
+Then open the terminal and change the directory to where you want pythonOS to be instaled and then just type `git clone https://github.com/Iemane291/pythonOS.git` and it should start installing.
 
-Then clone this repository with [Git](https://git-scm.com/downloads/) by going to the terminal and typing `git clone https://github.com/Iemane291/pythonOS.git` (make sure you have [Git](https://git-scm.com/downloads) installed) or click the code button and download the zip instead and extract it.
+Once it has finished installing, you can do `cd pythonOS` in the terminal and do one of these commands depending on what operating system you use.
 
-Go to the terminal and change directory to the repository folder.
+Windows: `py -m pip install -r requirements.txt`
 
-Do `pip3 install -r requirements.txt` to install what's required
+Mac: `python3 -m pip install -r requirements.txt`
 
-And you've got everything installed, head to the "Running" section now.
+Linux: `python -m pip install -r requirements.txt`
 
-# Running
+> The Linux command is untested.
 
-Run one of these commands depending on your OS:
+Then it should install all the libraries (view the libraries in the requirements.txt file if you are suspicious of what libraries are installed) you need.
 
-- Windows: `py main.py`
+Once that is finished, you can finally run one of these commands depending on what operating system you use.
 
-- Mac: `python3 main.py`
+Windows: `py main.py`
 
-- Linux: `python main.py`
+Mac: `python3 main.py`
+
+Linux: `python main.py`
+
+> The Linux command is untested.
+
+And that is it!
+
+### As a user
+
+Assuming you have everything installed (if not, please read the As a first-time user section) You can just open the terminal, change the directory to where the pythonOS folder is located and then do one of these commands depending on what operating system you use:
+
+Windows: `py main.py`
+
+Mac: `python3 main.py`
+
+Linux: `python main.py`
+
+> The Linux command is untested.
+
+### As a developer
+
+Assuming you use an IDE, here's what you can do to easily run pythonOS.
+
+Run one of these commands depending on what IDE you use.
+
+Visual Studio Code: Assuming you have the Python extension installed, you can click the run (the play button looking one) button and it should run in the integrated terminal.
+
+Sublime Text: Assuming Sublime has an integrated terminal & you've already installed what you need (if you don't know what to install, read the As a first-user section), you can just do one of these commands in the integrated terminal.
+
+Windows: `py main.py`
+
+Mac: `python3 main.py`
+
+Linux: `python main.py`
+
+## Credits
+
+[Mini](https://twitter.com/minilol69) - Creator of pythonOS, did:
+
+- Programming.
+- The embed logo creator.
+
+[Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
