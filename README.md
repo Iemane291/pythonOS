@@ -11,7 +11,7 @@ pythonOS is based off of [ChungOS](https://github.com/ArezalGame89/ChungOS), pyt
 
 pythonOS features:
 - Lua script support using [lupa](https://pypi.org/project/lupa)
-- Simple and colorful interface using [colorama](https://pypi.org/project/colorama) and [inquirer](https://pypi.org/project/inquirer)
+- Easy to use, fast and colorful interface using [colorama](https://pypi.org/project/colorama), [inquirer](https://pypi.org/project/inquirer) and [rich](https://pypi.org/project/rich)
 - Changeable options that change your experience. 
 - Much, much more (is yet to come).
 

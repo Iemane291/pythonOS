@@ -27,6 +27,12 @@ from PyQt5.QtGui import QIcon, QKeySequence
 from lupa import LuaRuntime
 from playsound import playsound
 from webbrowser import open_new_tab as openNewTab
+from rich.markdown import Markdown
+
+from rich.console import Console
+from rich import print as richPrint
+
+console = Console()
 
 
 def update():
@@ -102,7 +108,11 @@ while True is not False:
                 print("Seems that you have no Lua scripts. Please add one in the \"scripts\" folder.")
         
 
-
+        elif msg == "readme":
+            if getOption("colors"):
+                with open("README.md", "r") as mdFile:
+                    textRead = Markdown(mdFile.read())
+                console.print(textRead)
 
 
         elif msg.startswith("change"):
@@ -169,13 +179,23 @@ while True is not False:
             if len(soundList) < 1:
                 print("You do not have any sounds/songs to play.")
             else:
-                soundChose = inquirer.prompt([
-                    inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
-                ])
-                playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
+                if getOption("colors"):
+                    soundChose = inquirer.prompt([
+                        inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
+                    ])
+                    playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
+                else:
+                    print("Enter the filename of the sound file you want to play")
+                    print("\n".join(soundList))
+                    soundChose = input()
+                    if soundChose.endswith(".wav") or soundChose.endswith(".mp3"):
+                        if soundChose not in soundList:
+                            print("That doesn't seem like a valid sound file (that is an .wav or .mp3 file).")
+                        else:
+                            playsound("pyPlay/sounds/"+soundChose)
 
 
-        elif msg.startswith("pyplay"):
+        elif msg.startswith("pyplay "):
             if "-bg" in msg.split(" "):
                 if msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".mp3"):
                     playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
@@ -218,7 +238,7 @@ while True is not False:
 
                 
         elif bool(msg) is not False:
-            print(msg + " is not a command.")
+            print(msg.split(" ")[0] + " is not a command.")
 
 
         elif msg.startswith("run-luafile"):
@@ -231,7 +251,7 @@ while True is not False:
             os.chdir("..")
     except Exception as e:
             if getOption("colors"):
-                print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+                richPrint(f"[bold red]Error: [/bold red] {str(e)}")
             else:
                 print("Error: " + str(e))
 
