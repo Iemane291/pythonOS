@@ -30,6 +30,7 @@ from webbrowser import open_new_tab as openNewTab
 from rich.markdown import Markdown
 
 from rich.console import Console
+from rich import print as richPrint
 
 console = Console()
 
@@ -184,7 +185,7 @@ while True is not False:
                 playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
 
 
-        elif msg.startswith("pyplay"):
+        elif msg.startswith("pyplay "):
             if "-bg" in msg.split(" "):
                 if msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".mp3"):
                     playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
@@ -227,7 +228,7 @@ while True is not False:
 
                 
         elif bool(msg) is not False:
-            print(msg + " is not a command.")
+            print(msg.split(" ")[0] + " is not a command.")
 
 
         elif msg.startswith("run-luafile"):
@@ -240,7 +241,7 @@ while True is not False:
             os.chdir("..")
     except Exception as e:
             if getOption("colors"):
-                print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+                richPrint(f"[bold red]Error: [/bold red] {str(e)}")
             else:
                 print("Error: " + str(e))
 
