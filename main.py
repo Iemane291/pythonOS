@@ -113,7 +113,7 @@ while True is not False:
                 with open("README.md", "r") as mdFile:
                     textRead = Markdown(mdFile.read())
                 console.print(textRead)
-
+b
 
         elif msg.startswith("change"):
             if "--help" in msg.split(" "):
