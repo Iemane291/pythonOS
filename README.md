@@ -82,9 +82,8 @@ Linux: `python main.py`
 
 ## Credits
 
-[Mini](https://twitter.com/minilol69) - Creator of pythonOS, did:
+- [Mini](https://twitter.com/minilol69) - Creator, Programmer
 
-- Programming.
-- The embed logo creator.
+### Special Thanks
 
-[Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
+- [Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
