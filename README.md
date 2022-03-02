@@ -80,6 +80,55 @@ Mac: `python3 main.py`
 
 Linux: `python main.py`
 
+## Options
+This section is based on the changeable options (if you are a developer, there is a settings.json located in the data folder so you can edit settings)
+
+All of these settings can be changed by doing `change <setting_name> <new_value>`
+
+An option's possible values are called boolean values if their possible values are `true`, `on`, `off` and `false`
+
+### input-color
+
+**NOTE: THIS OPTION WILL STILL WORK EVEN IF YOU HAVE THE COLORS OPTION DISABLED**
+
+The possible values for this are:
+- `red`
+- `blue`
+- `green`
+- `yellow`
+- `magenta`
+- `white`
+
+This changes the `cwd >` color. Just like how you can with any terminal (that I know)
+
+### colors
+
+This is a boolean value.
+
+This toggles if you have colors enabled or not.
+
+> I heavily recommend to turn this off if you're colorblind or if colors cause eyestrain for you.
+
+### security
+
+This is a boolean value.
+
+This doesn't do much actually, it just automatically prevents pythonOS from opening a tab without your consent or even with your consent.
+
+But I recommend still having this enabled incase vulnerabilities are in pythonOS.
+
+### git-installed
+
+This is a boolean value.
+
+When you run the `update` command, this decides if pythonOS will ask you if you have git installed.
+
+If this option is enabled, then pythonOS will not ask you if you have Git installed and it will update.
+
+Else, it will ask again.
+
+This option is automatically turned on when pythonOS asks you if you have Git installed and you answer `y`
+
 ## Credits
 
 [Mini](https://twitter.com/minilol69) - Creator of pythonOS, did:
