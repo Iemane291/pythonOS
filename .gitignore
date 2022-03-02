@@ -136,4 +136,4 @@ dmypy.json
 .pyre/
 
 #
-data/
+data/settings.json
