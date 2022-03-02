@@ -136,4 +136,4 @@ This option is automatically turned on when pythonOS asks you if you have Git in
 - Programming.
 - The embed logo creator.
 
-[Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
+[Arezal](mailto:aradytfa@gmail.com) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
