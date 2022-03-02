@@ -129,6 +129,11 @@ Else, it will ask again.
 
 This option is automatically turned on when pythonOS asks you if you have Git installed and you answer `y`
 
+
+## FAQ
+### Q: Why do I get a list index out of range error?
+A: It might be because you haven't provided the argument for the command.
+
 ## Credits
 
 [Mini](https://twitter.com/minilol69) - Creator of pythonOS, did:
