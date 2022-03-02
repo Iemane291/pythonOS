@@ -8,21 +8,14 @@ colorama.init(autoreset=True)
 print("pythonOS\nv0.0.3a\nLoading..")
 
 import json
-import time
 import sys
 import inquirer
-
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
 from colorama import Fore, Back, Style
 from pathlib import Path
 from platform import system as usersOS
-
-from PyQt5.QtWidgets import *
-from PyQt5.QtWebEngineWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import QIcon, QKeySequence
 
 from lupa import LuaRuntime
 from playsound import playsound
@@ -95,6 +88,15 @@ while True is not False:
                 msg = input(os.getcwd() + " >>> ")
         if msg == "time":
             print(datetime.now())
+
+        elif msg.startswith("mkdir"):
+            try:
+                os.mkdir(msg.split(" ")[1])
+            except FileExistsError:
+                if getOption("colors"):
+                    richPrint("[bold red]Error: [/bold red]That directory already exists.")
+                else:
+                    print("Error: That directory already exists.")
         
         elif msg == "run-lua":
             lua = LuaRuntime()
