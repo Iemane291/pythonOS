@@ -251,7 +251,7 @@ while True is not False:
             os.chdir("..")
     except Exception as e:
             if getOption("colors"):
-                richPrint(f"[bold red]Error: [/bold red] {str(e)}")
+                richPrint(f"[bold red]Error: [/bold red]{str(e)}")
             else:
                 print("Error: " + str(e))
 
