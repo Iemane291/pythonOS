@@ -5,7 +5,19 @@ import colorama
 os.system("clear" if os.name == "posix" else "cls")
 
 colorama.init(autoreset=True)
-print("pythonOS\nv0.0.3a\nLoading..")
+print("""
+
+              _   _                  ____   _____ 
+             | | | |                / __ \ / ____|
+  _ __  _   _| |_| |__   ___  _ __ | |  | | (___  
+ | '_ \| | | | __| '_ \ / _ \| '_ \| |  | |\___ \ 
+ | |_) | |_| | |_| | | | (_) | | | | |__| |____) |
+ | .__/ \__, |\__|_| |_|\___/|_| |_|\____/|_____/ 
+ | |     __/ |                                    
+ |_|    |___/                                     
+""")
+print("v0.0.4a")
+print("Loading..")
 
 import json
 import sys
@@ -49,8 +61,16 @@ def getOption(option):
 
 
 os.system("clear" if os.name == "posix" else "cls")
-print("pythonOS")
-print("v0.0.3a")
+print("""     _   _                  ____   _____ 
+             | | | |                / __ \ / ____|
+  _ __  _   _| |_| |__   ___  _ __ | |  | | (___  
+ | '_ \| | | | __| '_ \ / _ \| '_ \| |  | |\___ \ 
+ | |_) | |_| | |_| | | | (_) | | | | |__| |____) |
+ | .__/ \__, |\__|_| |_|\___/|_| |_|\____/|_____/ 
+ | |     __/ |                                    
+ |_|    |___/                                                                      
+""")
+print("v0.0.4a")
 if getOption("colors"):
     print(Fore.YELLOW + "Loading..")
 else:

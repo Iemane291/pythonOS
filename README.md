@@ -1,4 +1,4 @@
-pythonOS Alpha 3.0.2
+pythonOS 0.0.4 Alpha
 ---
 [![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
 [![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
@@ -15,7 +15,7 @@ pythonOS features:
 - Changeable options that change your experience. 
 - Much, much more (is yet to come).
 
-Currently, we are on version 3.0.2A
+Currently, we are on version 0.0.4 Alpha
 
 ## Getting Started
 
