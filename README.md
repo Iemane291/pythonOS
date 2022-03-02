@@ -140,8 +140,4 @@ A: It might be because you haven't provided the argument for the command.
 
 ### Special Thanks
 
-<<<<<<< HEAD
 - [Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
-=======
-[Arezal](https://github.com/ArezalGame89) - First person to make a good PR & created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
->>>>>>> 2bd87c0f609b30dcb7a970b690c3945bd414cfcd
