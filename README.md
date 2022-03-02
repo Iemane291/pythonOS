@@ -1,4 +1,4 @@
-pythonOS Alpha 3.0.2
+pythonOS 0.0.4 Alpha
 ---
 [![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
 [![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
@@ -15,7 +15,7 @@ pythonOS features:
 - Changeable options that change your experience. 
 - Much, much more (is yet to come).
 
-Currently, we are on version 3.0.2A
+Currently, we are on version 0.0.4 Alpha
 
 ## Getting Started
 
@@ -80,10 +80,68 @@ Mac: `python3 main.py`
 
 Linux: `python main.py`
 
+## Options
+This section is based on the changeable options (if you are a developer, there is a settings.json located in the data folder so you can edit settings)
+
+All of these settings can be changed by doing `change <setting_name> <new_value>`
+
+An option's possible values are called boolean values if their possible values are `true`, `on`, `off` and `false`
+
+### input-color
+
+**NOTE: THIS OPTION WILL STILL WORK EVEN IF YOU HAVE THE COLORS OPTION DISABLED**
+
+The possible values for this are:
+- `red`
+- `blue`
+- `green`
+- `yellow`
+- `magenta`
+- `white`
+
+This changes the `cwd >` color. Just like how you can with any terminal (that I know)
+
+### colors
+
+This is a boolean value.
+
+This toggles if you have colors enabled or not.
+
+> I heavily recommend to turn this off if you're colorblind or if colors cause eyestrain for you.
+
+### security
+
+This is a boolean value.
+
+This doesn't do much actually, it just automatically prevents pythonOS from opening a tab without your consent or even with your consent.
+
+But I recommend still having this enabled incase vulnerabilities are in pythonOS.
+
+### git-installed
+
+This is a boolean value.
+
+When you run the `update` command, this decides if pythonOS will ask you if you have git installed.
+
+If this option is enabled, then pythonOS will not ask you if you have Git installed and it will update.
+
+Else, it will ask again.
+
+This option is automatically turned on when pythonOS asks you if you have Git installed and you answer `y`
+
+
+## FAQ
+### Q: Why do I get a list index out of range error?
+A: It might be because you haven't provided the argument for the command.
+
 ## Credits
 
 - [Mini](https://twitter.com/minilol69) - Creator, Programmer
 
 ### Special Thanks
 
+<<<<<<< HEAD
 - [Arezal](https://github.com/ArezalGame89) - Did not participate in here or contribute to anything, but created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
+=======
+[Arezal](https://github.com/ArezalGame89) - First person to make a good PR & created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
+>>>>>>> 2bd87c0f609b30dcb7a970b690c3945bd414cfcd

@@ -7,8 +7,12 @@ __pycache__/
 # C extensions
 *.so
 
+# settings
+data/settings.json
+
 # Distribution / packaging
 .Python
+data/
 build/
 develop-eggs/
 dist/
@@ -55,6 +59,8 @@ coverage.xml
 # Translations
 *.mo
 *.pot
+
+data/
 
 # Django stuff:
 *.log
@@ -128,3 +134,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#
+data/settings.json
