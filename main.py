@@ -5,9 +5,7 @@ import colorama
 os.system("clear" if os.name == "posix" else "cls")
 
 colorama.init(autoreset=True)
-print("""
-
-              _   _                  ____   _____ 
+print("""     _   _                  ____   _____ 
              | | | |                / __ \ / ____|
   _ __  _   _| |_| |__   ___  _ __ | |  | | (___  
  | '_ \| | | | __| '_ \ / _ \| '_ \| |  | |\___ \ 
