@@ -13,7 +13,7 @@ pythonOS features:
 - Lua script support using [lupa](https://pypi.org/project/lupa)
 - Easy to use, fast and colorful interface using [colorama](https://pypi.org/project/colorama), [inquirer](https://pypi.org/project/inquirer) and [rich](https://pypi.org/project/rich)
 - Changeable options that change your experience to your likings.
-- A [Discord](https://discord.gg/m2x7MUTe3B) server incase you want to suggest something, or you encountered an unfixable issue.
+- A [support](https://discord.gg/m2x7MUTe3B) server incase you want to suggest something, or you encountered an unfixable issue.
 - Much, much more (is yet to come).
 
 
