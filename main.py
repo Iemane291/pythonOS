@@ -277,7 +277,7 @@ while True is not False:
             reloadOS()
                 
         elif bool(msg) is not False:
-            print(f"\"{msg.split(' ')[0]}\" could not be recognized as a command. ")
+            print(f"\"{msg.split(' ')[0]}\" could not be recognized as a command. Double-check if you have spelt the command correctly.")
 
 
         elif msg.lower().startswith("run-luafile"):
