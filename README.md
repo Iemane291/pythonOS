@@ -115,7 +115,7 @@ This toggles if you have colors enabled or not.
 
 This is a boolean value.
 
-This will make pythonOS not use the computer information like current working directory and also prevents pythonOS from opening new webbrowser tabs.
+This will make pythonOS not show the computer information like current working directory and also prevents pythonOS from opening new webbrowser tabs.
 
 ### git-installed
 
