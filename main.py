@@ -86,7 +86,7 @@ def setOption(optionName, option):
 
 killMe = os.getcwd()
 if getOption("security"):
-    killMe = "dir"
+    killMe = "dir@user"
 
 os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
