@@ -69,7 +69,7 @@ def launch():
     window = MainWindow()
     QApplication.setApplicationName("pyBrowse")
 
-    app.setWindowIcon(QIcon("icon.png"))
+    app.setWindowIcon(QIcon("icons/pybrowse.png"))
     app.exec_()
 
 
