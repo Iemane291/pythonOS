@@ -251,13 +251,13 @@ while True is not False:
 
             match usersOS():
                 case 'Darwin':
-                    os.system("python3 programFiles/pyBrowse/pybrowse.py")
+                    os.system("python3 programFiles/pyBrowse/pybrowse.pyw")
                 
                 case 'Windows':
-                    os.system("py programFiles/pyBrowse/pybrowse.py")
+                    os.system("py programFiles/pyBrowse/pybrowse.pyw")
                 
                 case 'Linux':
-                    os.system("python programFiles/pyBrowse/pybrowse.py")
+                    os.system("python programFiles/pyBrowse/pybrowse.pyw")
 
                 
         elif bool(msg) is not False:
