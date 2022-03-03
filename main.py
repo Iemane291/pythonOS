@@ -248,25 +248,25 @@ while True is not False:
         elif msg.lower() == "pyedit":
             match usersOS():
                 case 'Darwin':
-                    os.system("python3 programFiles/pyEdit/pyedit.py")
+                    os.system("python3 pyedit.pyw")
                 
                 case 'Windows':
-                    os.system("py programFiles/pyEdit/pyedit.py")
+                    os.system("py pyedit.pyw")
                 
                 case 'Linux':
-                    os.system("python programFiles/pyEdit/pyedit.py")
+                    os.system("python pyedit.pyw")
 
         elif msg.lower() == "browser":
 
             match usersOS():
                 case 'Darwin':
-                    os.system("python3 programFiles/pyBrowse/pybrowse.pyw")
+                    os.system("python3 pybrowse.pyw")
                 
                 case 'Windows':
-                    os.system("py programFiles/pyBrowse/pybrowse.pyw")
+                    os.system("py pybrowse.pyw")
                 
                 case 'Linux':
-                    os.system("python programFiles/pyBrowse/pybrowse.pyw")
+                    os.system("python pybrowse.pyw")
 
 
         elif msg.lower() == "restart":
