@@ -162,6 +162,7 @@ class TextEditor:
                     ("All Files", "*.*"),
                     ("Text Files", "*.txt"),
                     ("Python Files", "*.py"),
+                    ("Lua Files", "*.lua"),
                 ),
             )
             # checking if filename not none
