@@ -37,6 +37,15 @@ from rich import print as richPrint
 
 console = Console()
 
+def reloadOS():
+    match usersOS():
+        case "Linux":
+            os.system("python main.py")
+        case "Windows":
+            os.system("py main.py")
+        case "Darwin":
+            os.system("python3 main.py")
+
 
 def update():
     os.system("git pull origin main --quiet")
@@ -259,9 +268,19 @@ while True is not False:
                 case 'Linux':
                     os.system("python programFiles/pyBrowse/pybrowse.pyw")
 
+
+        elif msg == "restart":
+            if getOption("colors"):
+                richPrint("[bold red]Restarting..[/bold red]")
+            else:
+                print("Restarting...")
+            reloadOS()
                 
         elif bool(msg) is not False:
             print(msg.split(" ")[0] + " is not a command.")
+    
+
+
 
 
         elif msg.startswith("run-luafile"):
@@ -277,5 +296,4 @@ while True is not False:
                 richPrint(f"[bold red]Error: [/bold red]{str(e)}")
             else:
                 print("Error: " + str(e))
-
 

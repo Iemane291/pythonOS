@@ -12,7 +12,8 @@ pythonOS is based off of [ChungOS](https://github.com/ArezalGame89/ChungOS), pyt
 pythonOS features:
 - Lua script support using [lupa](https://pypi.org/project/lupa)
 - Easy to use, fast and colorful interface using [colorama](https://pypi.org/project/colorama), [inquirer](https://pypi.org/project/inquirer) and [rich](https://pypi.org/project/rich)
-- Changeable options that change your experience. 
+- Changeable options that change your experience to your likings.
+- A [Discord](https://discord.gg/m2x7MUTe3B) server incase you want to suggest something, or you encountered an unfixable issue.
 - Much, much more (is yet to come).
 
 Currently, we are on version 0.0.4 Alpha
@@ -86,6 +87,8 @@ This section is based on the changeable options (if you are a developer, there i
 All of these settings can be changed by doing `change <setting_name> <new_value>`
 
 An option's possible values are called boolean values if their possible values are `true`, `on`, `off` and `false`
+
+These settings are not categorized (if they will be, they will not be categorized in the settings.json file) but I plan to categorize them when I think of more settings to add.
 
 ### input-color
 
