@@ -1,4 +1,4 @@
-pythonOS 0.0.4 Alpha
+pythonOS
 ---
 [![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
 [![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
@@ -16,7 +16,6 @@ pythonOS features:
 - A [Discord](https://discord.gg/m2x7MUTe3B) server incase you want to suggest something, or you encountered an unfixable issue.
 - Much, much more (is yet to come).
 
-Currently, we are on version 0.0.4 Alpha
 
 ## Getting Started
 
