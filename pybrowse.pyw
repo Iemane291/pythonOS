@@ -20,23 +20,23 @@ def launch():
             navbar = QToolBar()
             self.addToolBar(navbar)
 
-            back_btn = QAction("Back", self)
+            back_btn = QAction(QIcon("icons/pybrowse/back-icon.png"), "Back", self)
             back_btn.triggered.connect(self.browser.back)
             navbar.addAction(back_btn)
 
-            forward_btn = QAction("Foward", self)
+            forward_btn = QAction(QIcon("icons/pybrowse/foward-icon.png"), "Foward", self)
             forward_btn.triggered.connect(self.browser.forward)
             navbar.addAction(forward_btn)
 
-            reload_btn = QAction("Reload", self)
+            reload_btn = QAction(QIcon("icons/pybrowse/reload-icon.png"), 'Reload', self)
             reload_btn.triggered.connect(self.browser.reload)
             navbar.addAction(reload_btn)
 
-            home_btn = QAction("Home", self)
+            home_btn = QAction(QIcon("icons/pybrowse/home-icon.png"), 'Home', self)
             home_btn.triggered.connect(self.navigate_home)
             navbar.addAction(home_btn)
 
-            quit_btn = QAction("Quit", self)
+            quit_btn = QAction(QIcon("icons/pybrowse/quit-icon.png"), "Quit", self)
             quit_btn.triggered.connect(self.close)
             navbar.addAction(quit_btn)
 
@@ -67,6 +67,7 @@ def launch():
 
     app = QApplication(sys.argv)
     window = MainWindow()
+    window.show()
     QApplication.setApplicationName("pyBrowse")
 
     app.setWindowIcon(QIcon("icons/pybrowse/window-icon.png"))
