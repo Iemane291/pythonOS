@@ -291,7 +291,8 @@ class TextEditor:
     # Defining About Funtion
     def infoabout(self):
         messagebox.showinfo(
-            "pyEdit is a program made to be like Notepad, pyEdit is a program in pythonOS."
+            "About",
+            "pyEdit is a program made to be like Notepad, pyEdit is a program in pythonOS.",
         )
 
     # Defining shortcuts Funtion
