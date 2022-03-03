@@ -100,7 +100,7 @@ while True is not False:
             case "blue":
                 msg = input(Fore.BLUE + killMe + " >>> ").lower()
             case "yellow":
-                msg = input(Fore.YELLOW + killMe + " >>> ").lower()
+                msg = input(Fore.YELLOW +  killMe + " >>> ").lower()
             case "green":
                 msg = input(Fore.GREEN + killMe + " >>> ").lower()
             case "magenta":
