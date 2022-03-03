@@ -103,23 +103,23 @@ while True is not False:
         match getOption("input-color").lower():
             case "white":
 
-                msg = input(Fore.WHITE + killMe + " >>> ").lower()
+                msg = input(Fore.WHITE + killMe + " >>> ")
             case "red":
-                msg = input(Fore.RED + killMe + " >>> ").lower()
+                msg = input(Fore.RED + killMe + " >>> ")
             case "blue":
-                msg = input(Fore.BLUE + killMe + " >>> ").lower()
+                msg = input(Fore.BLUE + killMe + " >>> ")
             case "yellow":
-                msg = input(Fore.YELLOW +  killMe + " >>> ").lower()
+                msg = input(Fore.YELLOW +  killMe + " >>> ")
             case "green":
-                msg = input(Fore.GREEN + killMe + " >>> ").lower()
+                msg = input(Fore.GREEN + killMe + " >>> ")
             case "magenta":
-                msg = input(Fore.MAGENTA + killMe + " >>> ").lower()
+                msg = input(Fore.MAGENTA + killMe + " >>> ")
             case _:
                 msg = input(os.getcwd() + " >>> ")
-        if msg == "time":
+        if msg.lower() == "time":
             print(datetime.now())
 
-        elif msg.startswith("mkdir"):
+        elif msg.lower().startswith("mkdir"):
             try:
                 os.mkdir(msg.split(" ")[1])
             except FileExistsError:
@@ -128,7 +128,7 @@ while True is not False:
                 else:
                     print("Error: That directory already exists.")
         
-        elif msg == "run-lua":
+        elif msg.lower() == "run-lua":
             lua = LuaRuntime()
             weirdPath = Path("scripts")
             if len(os.listdir("scripts")) > 1:
@@ -140,14 +140,14 @@ while True is not False:
                 print("Seems that you have no Lua scripts. Please add one in the \"scripts\" folder.")
         
 
-        elif msg == "readme":
+        elif msg.lower() == "readme":
             if getOption("colors"):
                 with open("README.md", "r") as mdFile:
                     textRead = Markdown(mdFile.read())
                 console.print(textRead)
 
 
-        elif msg.startswith("change"):
+        elif msg.lower().startswith("change"):
             if "--help" in msg.split(" "):
                 print(
                     "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\ninput-color - This changes the input color for typing stuff, possible options for this are: red, green, blue, magenta, yellow, white\ngit-installed - Whenever you run the update command, if this option is \"y\" then it won't ask if you have git installed, else it will ask.\nsecurity - This adds a little security features, it's recommended to turn this on, even if you think it does nothing."
@@ -179,7 +179,7 @@ while True is not False:
                             setOption("colors", True)
                         case _:
                             pass
-        elif msg == "update":
+        elif msg.lower() == "update":
             if getOption("git-installed") == "UNDEFINED" or not getOption("git-installed"):
                 if getOption("colors"):
                     print(Fore.RED + "This action requires Git, do you have it installed?")
@@ -197,13 +197,13 @@ while True is not False:
                     update()
             
 
-        elif msg == "exit":
+        elif msg.lower() == "exit":
             exit()
 
-        elif msg == "privacy":
+        elif msg.lower() == "privacy":
             print(f"We keep all of your private information unused, we don't use them at all. You can even check the code right now.\n\nAll we use is multiple libraries, Python {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} and that is it.\n\nIf you still do not feel secure/safe using this, turn on the security option. ")
 
-        elif msg == "pyplay":
+        elif msg.lower() == "pyplay":
             soundList = []
             for i in os.listdir('pyPlay/sounds'):
                 if i != "readme.txt" or i.endswith(".wav") or i.endswith(".mp3"):
@@ -227,7 +227,7 @@ while True is not False:
                             playsound("pyPlay/sounds/"+soundChose)
 
 
-        elif msg.startswith("pyplay "):
+        elif msg.lower().startswith("pyplay "):
             if "-bg" in msg.split(" "):
                 if msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".mp3"):
                     playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
@@ -239,13 +239,13 @@ while True is not False:
                 else:
                     print("Oops, that does not look like a .wav or .mp3 file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
 
-        elif msg == "memory":
+        elif msg.lower() == "memory":
             from psutil import Process
 
             curMemory = Process(os.getpid())
             print("Memory in megabytes: " + str(int(curMemory.memory_info().rss / 1000000)) + "MB")
         
-        elif msg == "pyedit":
+        elif msg.lower() == "pyedit":
             match usersOS():
                 case 'Darwin':
                     os.system("python3 programFiles/pyEdit/pyedit.py")
@@ -256,7 +256,7 @@ while True is not False:
                 case 'Linux':
                     os.system("python programFiles/pyEdit/pyedit.py")
 
-        elif msg == "browser":
+        elif msg.lower() == "browser":
 
             match usersOS():
                 case 'Darwin':
@@ -269,7 +269,7 @@ while True is not False:
                     os.system("python programFiles/pyBrowse/pybrowse.pyw")
 
 
-        elif msg == "restart":
+        elif msg.lower() == "restart":
             if getOption("colors"):
                 richPrint("[bold red]Restarting..[/bold red]")
             else:
@@ -277,13 +277,10 @@ while True is not False:
             reloadOS()
                 
         elif bool(msg) is not False:
-            print(msg.split(" ")[0] + " is not a command.")
-    
+            print(f"\"{msg.split(' ')[0]}\" could not be recognized as a command. ")
 
 
-
-
-        elif msg.startswith("run-luafile"):
+        elif msg.lower().startswith("run-luafile"):
             lua = LuaRuntime()
             os.chdir("scripts")
             for luathing in os.listdir():
