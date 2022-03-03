@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QIcon, QKeySequence
+from PyQt5.QtGui import QIcon, QFont
 
 
 def launch():
@@ -42,9 +42,13 @@ def launch():
 
             self.url_bar = QLineEdit()
             self.url_bar.returnPressed.connect(self.nav_url)
+
             self.urlBarShit = self.url_bar.font()
-            self.urlBarShit.setPointSize(11)
+            self.urlBarShit.setPointSize(23)
             self.url_bar.setFont(self.urlBarShit)
+
+            self.url_bar.setFont(QFont("Segoe UI"))
+
             navbar.addWidget(self.url_bar)
 
             self.browser.urlChanged.connect(self.update_url)
