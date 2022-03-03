@@ -275,19 +275,22 @@ while True is not False:
             else:
                 print("Restarting...")
             reloadOS()
+        
+        elif msg.lower().startswith("run-luafile"):
+            if not msg.endswith(".lua"):
+                raise ValueError("could not identify as .lua file")
+            else:
+                lua = LuaRuntime()
+                scriptsPath = Path("scripts")
+                for luathing in os.listdir("scripts"):
+                    if msg.split(" ")[1] == luathing:
+                        with open(msg.split(" ")[1], "r") as f:
+                            lua.eval(f.read())
                 
         elif bool(msg) is not False:
             print(f"\"{msg.split(' ')[0]}\" could not be recognized as a command. Double-check if you have spelt the command correctly.")
 
 
-        elif msg.lower().startswith("run-luafile"):
-            lua = LuaRuntime()
-            os.chdir("scripts")
-            for luathing in os.listdir():
-                if msg.split(" ")[1] == luathing:
-                    with open(msg.split(" ")[1], "r") as f:
-                        lua.eval(f.read())
-            os.chdir("..")
     except Exception as e:
             if getOption("colors"):
                 richPrint(f"[bold red]Error: [/bold red]{str(e)}")
