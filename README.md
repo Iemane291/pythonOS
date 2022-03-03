@@ -113,9 +113,7 @@ This toggles if you have colors enabled or not.
 
 This is a boolean value.
 
-This doesn't do much actually, it just automatically prevents pythonOS from opening a tab without your consent or even with your consent.
-
-But I recommend still having this enabled incase vulnerabilities are in pythonOS.
+This will make pythonOS not use the computer information like current working directory and also prevents pythonOS from opening new webbrowser tabs.
 
 ### git-installed
 

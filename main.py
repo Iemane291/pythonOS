@@ -84,6 +84,9 @@ def setOption(optionName, option):
         json.dump(data, f, indent=4)
 
 
+killMe = os.getcwd()
+if getOption("security"):
+    killMe = "dir"
 
 os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
@@ -91,17 +94,17 @@ while True is not False:
         match getOption("input-color").lower():
             case "white":
 
-                msg = input(Fore.WHITE + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.WHITE + killMe + " >>> ").lower()
             case "red":
-                msg = input(Fore.RED + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.RED + killMe + " >>> ").lower()
             case "blue":
-                msg = input(Fore.BLUE + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.BLUE + killMe + " >>> ").lower()
             case "yellow":
-                msg = input(Fore.YELLOW + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.YELLOW + killMe + " >>> ").lower()
             case "green":
-                msg = input(Fore.GREEN + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.GREEN + killMe + " >>> ").lower()
             case "magenta":
-                msg = input(Fore.MAGENTA + os.getcwd() + " >>> ").lower()
+                msg = input(Fore.MAGENTA + killMe + " >>> ").lower()
             case _:
                 msg = input(os.getcwd() + " >>> ")
         if msg == "time":
