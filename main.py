@@ -284,7 +284,7 @@ while True is not False:
                 scriptsPath = Path("scripts")
                 for luathing in os.listdir("scripts"):
                     if msg.split(" ")[1] == luathing:
-                        with open(msg.split(" ")[1], "r") as f:
+                        with open(scriptsPath / msg.split(" ")[1], "r") as f:
                             lua.eval(f.read())
                 
         elif bool(msg) is not False:
