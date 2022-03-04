@@ -111,6 +111,12 @@ This toggles if you have colors enabled or not.
 
 > I heavily recommend to turn this off if you're colorblind or if colors cause eyestrain for you.
 
+### edit-warning
+
+This is a boolean option.
+
+This toggles if a warning will be shown everytime you run the edit command (even if an error occured).
+
 ### security
 
 This is a boolean value.
