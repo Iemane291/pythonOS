@@ -118,6 +118,13 @@ while True is not False:
                 msg = input(os.getcwd() + " >>> ")
         if msg.lower() == "time":
             print(datetime.now())
+        
+        elif msg.lower().startswith("edit "):
+                if msg.split(' ')[1] in globals():
+                    newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
+                    globals()[msg.split(" ")[1]] =  newValue
+                else:
+                    raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
 
         elif msg.lower().startswith("mkdir"):
             try:
@@ -198,7 +205,7 @@ while True is not False:
             
 
         elif msg.lower() == "exit":
-            exit()
+            break
 
         elif msg.lower() == "privacy":
             print(f"We keep all of your private information unused, we don't use them at all. You can even check the code right now.\n\nAll we use is multiple libraries, Python {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} and that is it.\n\nIf you still do not feel secure/safe using this, turn on the security option. ")
