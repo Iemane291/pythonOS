@@ -64,7 +64,9 @@ def getOption(option):
     coolpath = Path("data")
     with open(coolpath / "settings.json", "r") as f:
         data = json.load(f)
-        return data.get(option)
+        if data.get(option) == "on": return True
+        elif data.get(option) == "off": return False
+        else: return data.get(option)
 
 
 os.system("clear" if os.name == "posix" else "cls")
@@ -120,11 +122,16 @@ while True is not False:
             print(datetime.now())
         
         elif msg.lower().startswith("edit "):
-                if msg.split(' ')[1] in globals():
-                    newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
-                    globals()[msg.split(" ")[1]] =  newValue
+            if getOption("error-warning"):
+                if getOption("colors"):
+                    richPrint("[yellow]WARNING: Editing system variables may result in an error, use this at your own risk.[/yellow]")
                 else:
-                    raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
+                    print("WARNING: Editing system variables may result in an error, use this at your own risk.")
+            if msg.split(' ')[1] in globals():
+                newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
+                globals()[msg.split(" ")[1]] =  newValue
+            else:
+                 raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
 
         elif msg.lower().startswith("mkdir"):
             try:
