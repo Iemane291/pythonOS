@@ -26,7 +26,7 @@ So what you'll need to install is:
 - [Git-scm](https://git-scm.com/download)
 
 
-Then open the terminal and change the directory to where you want pythonOS to be instaled and then just type `git clone https://github.com/Iemane291/pythonOS.git` and it should start installing.
+Then open the terminal and change the directory to where you want pythonOS to be installed and then just type `git clone https://github.com/Iemane291/pythonOS.git` and it should start installing.
 
 Once it has finished installing, you can do `cd pythonOS` in the terminal and do one of these commands depending on what operating system you use.
 
