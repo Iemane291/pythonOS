@@ -14,12 +14,13 @@ print("""     _   _                  ____   _____
  | |     __/ |                                    
  |_|    |___/                                     
 """)
-print("v0.0.4a")
+print("v0.0.5a")
 print("Loading..")
 
 import json
 import sys
 import inquirer
+import urllib.request
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
@@ -68,6 +69,12 @@ def getOption(option):
         elif data.get(option) == "off": return False
         else: return data.get(option)
 
+def newAnnouncement():
+    if urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt") != "None":
+        if getOption("colors"): richPrint("[bold red][!][/bold red] "+urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt"))
+        else: print("[!] "+urllib.request.urlretrive("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt"))
+        input()
+
 
 os.system("clear" if os.name == "posix" else "cls")
 print("""     _   _                  ____   _____ 
@@ -98,6 +105,8 @@ def setOption(optionName, option):
 killMe = os.getcwd()
 if getOption("security"):
     killMe = "dir@user"
+
+newAnnouncement()
 
 os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
@@ -147,8 +156,8 @@ while True is not False:
                     globals()[msg.split(" ")[1]] =  newValue
                 else:
                     raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
-            except (ValueError, NameError):
-                pass
+            except Exception as e:
+                print(str(e))
 
         elif msg.lower().startswith("mkdir"):
             try:
