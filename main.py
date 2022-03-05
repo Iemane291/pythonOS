@@ -122,36 +122,33 @@ while True is not False:
             print(datetime.now())
         
         elif msg.lower().startswith("edit "):
-            if getOption("error-warning"):
-                if getOption("colors"):
-                    richPrint("[yellow]WARNING: Editing system variables may result in an error, use this at your own risk.[/yellow]")
-                else:
-                    print("WARNING: Editing system variables may result in an error, use this at your own risk.")
-            if msg.split(' ')[1] in globals():
-                chosentype = None
-                if getOption('colors'):
-                    chosentype = inquirer.prompt([inquirer.List('valType', message='What is the type of value you want to edit to?', choices=["Number", "Text/String"])])
-                else:
+            try:
+                if getOption("error-warning"):
+                    if getOption("colors"):
+                        richPrint("[yellow]WARNING: Editing system variables may result in an error, use this at your own risk.[/yellow]")
+                    else:
+                        print("WARNING: Editing system variables may result in an error, use this at your own risk.")
+                if msg.split(' ')[1] in globals():
                     print("What is the type of the value? ")
-                    print("[0] Number\n[1] Text/String")
+                    if not getOption("colors"):
+                        print("[0] Number\n[1] Text/String")
+                    elif getOption("colors"):
+                        richPrint("[blue][0][/blue] - Number")
+                        richPrint("[blue][1][/blue] - Text/String")
                     chosentype = int(input())
-                if type(chosentype) is int:
-                    match chosentype:
-                        case 0:
-                            newValue = int(input(f"What do you want to edit {msg.split(' ')[1]} to? "))
-                        case 1:
-                            newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
-                        case _:
-                            print("That is a not valid number!")
-                elif type(chosentype) is not int:
-                    match chosentype.get("valType"):
-                        case "Number":
-                            newValue = int(input(f"What do you want to edit {msg.split(' ')[1]} to? "))
-                        case "Text/String":
-                            newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
-                globals()[msg.split(" ")[1]] =  newValue
-            else:
-                 raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
+                    if type(chosentype) is int:
+                        match chosentype:
+                            case 0:
+                                newValue = int(input(f"What do you want to edit {msg.split(' ')[1]} to? "))
+                            case 1:
+                                newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
+                            case _:
+                                print("That is a not valid number!")
+                    globals()[msg.split(" ")[1]] =  newValue
+                else:
+                    raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
+            except (ValueError, NameError):
+                pass
 
         elif msg.lower().startswith("mkdir"):
             try:
