@@ -86,7 +86,7 @@ print("""     _   _                  ____   _____
  | |     __/ |                                    
  |_|    |___/                                                                      
 """)
-print("v0.0.4a")
+print("v0.0.5a")
 if getOption("colors"):
     print(Fore.YELLOW + "Loading..")
 else:
