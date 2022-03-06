@@ -69,11 +69,6 @@ def getOption(option):
         elif data.get(option) == "off": return False
         else: return data.get(option)
 
-def newAnnouncement():
-    if urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt") != "None":
-        if getOption("colors"): richPrint("[bold red][!][/bold red] "+urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt"))
-        else: print("[!] "+urllib.request.urlretrive("https://raw.githubusercontent.com/Iemane291/pythonOS/main/announcement.txt"))
-        input()
 
 
 os.system("clear" if os.name == "posix" else "cls")
@@ -106,7 +101,7 @@ killMe = os.getcwd()
 if getOption("security"):
     killMe = "dir@user"
 
-newAnnouncement()
+
 
 os.system("clear" if os.name != "nt" else "cls")
 while True is not False:
