@@ -23,6 +23,9 @@ class TextEditor:
         self.filename = None
         # Declaring Title variable
         self.title = StringVar()
+
+        self.root.iconphoto(False, PhotoImage(file='icons/pyedit/window-icon.png'))
+
         # Declaring Status variable
         self.status = StringVar()
         # Creating Titlebar
