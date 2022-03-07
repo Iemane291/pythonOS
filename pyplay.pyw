@@ -1,11 +1,16 @@
+
+
 import os
 
 from tkinter import *
+from tkinter import messagebox
 from playsound import playsound
+
 
 window = Tk()
 window.title("pyPlay")
 window.geometry("500x500")
+window.iconbitmap("icons/pyplay/window-icon.ico")
 
 chosenSound = Listbox(window)
 chosenSound.pack()
@@ -19,7 +24,10 @@ for i in os.listdir('pyPlay/sounds'):
 
 def playSound():
     for i in chosenSound.curselection():
-        playsound("pyPlay/sounds/"+chosenSound.get(i))
+        try:
+            playsound("pyPlay/sounds/"+chosenSound.get(i))
+        except Exception as e:
+            messagebox.showerror("Exception", str(e))
 
 
 
