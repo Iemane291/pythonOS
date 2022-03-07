@@ -41,26 +41,11 @@ from rich import print as richPrint
 console = Console()
 
 def reloadOS():
-    match usersOS():
-        case "Linux":
-            os.system("python main.py")
-        case "Windows":
-            os.system("py main.py")
-        case "Darwin":
-            os.system("python3 main.py")
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 def update():
     os.system("git pull origin main --quiet")
-    match usersOS():
-        case 'Darwin': 
-            os.system("python3 main.py")
-
-        case 'Windows':
-            os.system("py main.py")
-
-        case 'Linux':
-            os.system("python main.py")
 
 
 def getOption(option):
@@ -226,12 +211,14 @@ while True is not False:
                 if confirm == "y":
                     setOption("git-installed", True)
                     update()
+                    reloadOS()
                 elif confirm == "n":
                     if not getOption("security"):
                         openNewTab('https://git-scm.com/downloads')
                     setOption("git-installed", False)
             elif getOption("git-installed"):
                     update()
+                    reloadOS()
             
 
         elif msg.lower() == "exit":
