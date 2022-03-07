@@ -2,6 +2,8 @@
 import os
 import colorama
 
+if os.name == 'nt':
+    os.system('title pythonOS')
 os.system("clear" if os.name == "posix" else "cls")
 
 colorama.init(autoreset=True)
@@ -129,7 +131,7 @@ while True is not False:
             try:
                 if getOption("error-warning"):
                     if getOption("colors"):
-                        richPrint("[yellow]WARNING: Editing system variables may result in an error, use this at your own risk.[/yellow]")
+                        richPrint("[yellow]WARNING: Editing system variables may result in an error or a crash, if one occurs immediately close pythonOS. use this at your own risk.[/yellow]")
                     else:
                         print("WARNING: Editing system variables may result in an error, use this at your own risk.")
                 if msg.split(' ')[1] in globals():
