@@ -2,6 +2,8 @@
 import os
 import colorama
 
+if os.name == 'nt':
+    os.system("title pythonOS")
 os.system("clear" if os.name == "posix" else "cls")
 
 colorama.init(autoreset=True)
