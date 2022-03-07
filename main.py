@@ -3,7 +3,11 @@ import os
 import colorama
 
 if os.name == 'nt':
+<<<<<<< HEAD
     os.system("title pythonOS")
+=======
+    os.system('title pythonOS')
+>>>>>>> 5380bbc934937aa06d2d698af8cb73a9015a8e46
 os.system("clear" if os.name == "posix" else "cls")
 
 colorama.init(autoreset=True)
@@ -41,26 +45,11 @@ from rich import print as richPrint
 console = Console()
 
 def reloadOS():
-    match usersOS():
-        case "Linux":
-            os.system("python main.py")
-        case "Windows":
-            os.system("py main.py")
-        case "Darwin":
-            os.system("python3 main.py")
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 def update():
     os.system("git pull origin main --quiet")
-    match usersOS():
-        case 'Darwin': 
-            os.system("python3 main.py")
-
-        case 'Windows':
-            os.system("py main.py")
-
-        case 'Linux':
-            os.system("python main.py")
 
 
 def getOption(option):
@@ -131,7 +120,7 @@ while True is not False:
             try:
                 if getOption("error-warning"):
                     if getOption("colors"):
-                        richPrint("[yellow]WARNING: Editing system variables may result in an error, use this at your own risk.[/yellow]")
+                        richPrint("[yellow]WARNING: Editing system variables may result in an error or a crash, if one occurs immediately close pythonOS. use this at your own risk.[/yellow]")
                     else:
                         print("WARNING: Editing system variables may result in an error, use this at your own risk.")
                 if msg.split(' ')[1] in globals():
@@ -193,12 +182,12 @@ while True is not False:
                 newoption = None
                 if (
                     msg.split(" ")[2].lower() == "false"
-                    or msg.split(" ")[2].lower() == "on"
+                    or msg.split(" ")[2].lower() == "off"
                 ):
                     newoption = False
                 elif (
                     msg.split(" ")[2].lower() == "true"
-                    or msg.split(" ")[2].lower() == "off"
+                    or msg.split(" ")[2].lower() == "on"
                 ):
                     newoption = True
                 if getOption(msg.split(" ")[1].lower()) is not None:
@@ -226,12 +215,14 @@ while True is not False:
                 if confirm == "y":
                     setOption("git-installed", True)
                     update()
+                    reloadOS()
                 elif confirm == "n":
                     if not getOption("security"):
                         openNewTab('https://git-scm.com/downloads')
                     setOption("git-installed", False)
             elif getOption("git-installed"):
                     update()
+                    reloadOS()
             
 
         elif msg.lower() == "exit":
