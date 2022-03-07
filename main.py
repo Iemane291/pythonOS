@@ -191,12 +191,12 @@ while True is not False:
                 newoption = None
                 if (
                     msg.split(" ")[2].lower() == "false"
-                    or msg.split(" ")[2].lower() == "on"
+                    or msg.split(" ")[2].lower() == "off"
                 ):
                     newoption = False
                 elif (
                     msg.split(" ")[2].lower() == "true"
-                    or msg.split(" ")[2].lower() == "off"
+                    or msg.split(" ")[2].lower() == "on"
                 ):
                     newoption = True
                 if getOption(msg.split(" ")[1].lower()) is not None:
