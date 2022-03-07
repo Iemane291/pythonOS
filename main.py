@@ -223,31 +223,15 @@ while True is not False:
         elif msg.lower() == "exit":
             break
 
+
         elif msg.lower() == "privacy":
             print(f"We keep all of your private information unused, we don't use them at all. You can even check the code right now.\n\nAll we use is multiple libraries, Python {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} and that is it.\n\nIf you still do not feel secure/safe using this, turn on the security option. ")
 
         elif msg.lower() == "pyplay":
-            soundList = []
-            for i in os.listdir('pyPlay/sounds'):
-                if i != "readme.txt" or i.endswith(".wav") or i.endswith(".mp3"):
-                    soundList.append(i)
-            if len(soundList) < 1:
-                print("You do not have any sounds/songs to play.")
-            else:
-                if getOption("colors"):
-                    soundChose = inquirer.prompt([
-                        inquirer.List('sound-chosen', 'What sound do you want to play from here?', soundList)
-                    ])
-                    playsound("pyPlay/sounds/"+soundChose.get("sound-chosen"))
-                else:
-                    print("Enter the filename of the sound file you want to play")
-                    print("\n".join(soundList))
-                    soundChose = input()
-                    if soundChose.endswith(".wav") or soundChose.endswith(".mp3"):
-                        if soundChose not in soundList:
-                            print("That doesn't seem like a valid sound file (that is an .wav or .mp3 file).")
-                        else:
-                            playsound("pyPlay/sounds/"+soundChose)
+            match usersOS():
+                case "Windows": os.system("py pyplay.pyw")
+                case "Darwin": os.system("python3 pyplay.pyw")
+                case "Linux": os.system("python pyplay.pyw")
 
 
         elif msg.lower().startswith("pyplay "):
