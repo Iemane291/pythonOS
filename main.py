@@ -137,8 +137,11 @@ while True is not False:
                     globals()[msg.split(" ")[1]] =  newValue
                 else:
                     raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
-            except Exception as e:
-                print(str(e))
+            except NameError as e:
+                if str(e) == "'newValue' is not defined":
+                    pass
+                else:
+                    raise ValueError(str(e))
 
         elif msg.lower().startswith("mkdir"):
             try:
