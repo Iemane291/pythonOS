@@ -12,7 +12,7 @@ window.title("pyPlay")
 window.geometry("500x500")
 window.iconbitmap("icons/pyplay/window-icon.ico")
 
-chosenSound = Listbox(window)
+chosenSound = Listbox(window, width=600)
 chosenSound.pack()
 
 
