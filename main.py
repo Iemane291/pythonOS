@@ -111,13 +111,13 @@ while True is not False:
         if msg.lower() == "time":
             print(datetime.now())
         
-        elif msg.lower().startswith("edit "):
+        elif msg.lower().startswith("edit"):
             try:
                 if getOption("error-warning"):
                     if getOption("colors"):
-                        richPrint("[yellow]WARNING: Editing system variables may result in an error or a crash, if one occurs immediately close pythonOS. use this at your own risk.[/yellow]")
+                        richPrint("[yellow]WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.[/yellow]")
                     else:
-                        print("WARNING: Editing system variables may result in an error, use this at your own risk.")
+                        print("WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.")
                 if msg.split(' ')[1] in globals():
                     print("What is the type of the value? ")
                     if not getOption("colors"):
@@ -171,7 +171,7 @@ while True is not False:
         elif msg.lower().startswith("change"):
             if "--help" in msg.split(" "):
                 print(
-                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\ninput-color - This changes the input color for typing stuff, possible options for this are: red, green, blue, magenta, yellow, white\ngit-installed - Whenever you run the update command, if this option is \"y\" then it won't ask if you have git installed, else it will ask.\nsecurity - This adds a little security features, it's recommended to turn this on, even if you think it does nothing."
+                    "\nOptions:\n\tcolors - This toggles if you will see colors or not.\n\tinput-color - This changes the input color, possible options are: green, blue, magenta, red, white, yellow.\n\tsecurity - This will not display your private information.\n\tgit-installed - Whenever you update, this may trigger if you'll be asked if you have git installed or not.\n\tedit-warning - This will show a warning if you are running the edit command, even if an error occured."
                 )
             else:
                 newoption = None
