@@ -3,5 +3,8 @@
     "input-color": "white",
     "security": true,
     "git-installed": "UNDEFINED",
-    "edit-warning": true
+    "edit-warning": true,
+    "use-size-settings": false,
+    "size-columns": 150,
+    "size-lines": 3000
 }
