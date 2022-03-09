@@ -4,7 +4,7 @@
     "security": true,
     "git-installed": "UNDEFINED",
     "edit-warning": true,
-    "use-size-settings": false,
-    "size-columns": 150,
-    "size-lines": 3000
+    "use-size-settings": true,
+    "size-columns": 134,
+    "size-lines": 9001
 }
