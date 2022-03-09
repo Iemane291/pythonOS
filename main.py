@@ -1,6 +1,12 @@
 
 import os
+import random
 import colorama
+
+randomQuotes = [
+    "Did you know this is the only loading quote?"
+]
+randomthing = random.choice(randomQuotes)
 
 if os.name == 'nt':
     os.system("title pythonOS")
@@ -18,6 +24,8 @@ print("""     _   _                  ____   _____
 """)
 print("v0.0.5a")
 print("Loading..")
+print(randomthing)
+
 
 import json
 import sys
@@ -72,6 +80,7 @@ if getOption("colors"):
     print(Fore.YELLOW + "Loading..")
 else:
     print("Loading..")
+print(randomthing)
 
 
 def setOption(optionName, option):
