@@ -289,8 +289,10 @@ while True is not False:
 
 
         elif msg.lower().startswith("echo"):
-            if len(msg.split(" ")) < 1: print()
-            else: print(msg[5:])
+            if len(msg.split(" ")) < 1: 
+                print()
+            else: 
+                print(msg[5:])
 
         elif msg.lower() == "restart":
             if getOption("colors"):
