@@ -1,7 +1,21 @@
 
 import os
+import json
 import random
 import colorama
+
+from pathlib import Path
+
+def getOption(option):
+    coolpath = Path("data")
+    with open(coolpath / "settings.json", "r") as f:
+        data = json.load(f)
+        if data.get(option) == "on": return True
+        elif data.get(option) == "off": return False
+        else: return data.get(option)
+
+if os.name == "nt" and getOption("use-size-settings"):
+    os.system(f"mode con: cols={getOption('size-columns')} lines={getOption('size-lines')}")
 
 randomQuotes = [
     "Did you know this is the only loading quote?"
@@ -34,7 +48,6 @@ import inquirer
 
 from datetime import datetime
 from colorama import Fore, Back, Style
-from pathlib import Path
 from platform import system as usersOS
 
 from lupa import LuaRuntime
@@ -55,13 +68,6 @@ def update():
     os.system("git pull origin main --quiet")
 
 
-def getOption(option):
-    coolpath = Path("data")
-    with open(coolpath / "settings.json", "r") as f:
-        data = json.load(f)
-        if data.get(option) == "on": return True
-        elif data.get(option) == "off": return False
-        else: return data.get(option)
 
 
 
