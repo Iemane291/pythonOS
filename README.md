@@ -135,10 +135,24 @@ Else, it will ask again.
 
 This option is automatically turned on when pythonOS asks you if you have Git installed and you answer `y`
 
+### use-size-settings
+
+This is a boolean value.
+
+This will change the command window size (on a restart using the `restart` command) to `size-columns` for the columns and `size-lines` for the lines.
+
+### size-lines
+
+This is the lines for the command window.
+
+### size-columns
+
+This is the columns for the command window.
+
 
 ## FAQ
 ### Q: Why do I get a list index out of range error?
-A: It might be because you haven't provided the argument for the command.
+A: Likely because you haven't provided the argument for that command.
 
 ## Credits
 

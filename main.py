@@ -6,6 +6,11 @@ import colorama
 
 from pathlib import Path
 
+def getSettings() -> dict:
+    coolPath = Path("data")
+    with open(coolPath / "settings.json") as f:
+        return json.load(f)
+
 def getOption(option):
     coolpath = Path("data")
     with open(coolpath / "settings.json", "r") as f:
@@ -187,7 +192,7 @@ while True is not False:
         elif msg.lower().startswith("change"):
             if "--help" in msg.split(" "):
                 print(
-                    "\nOptions:\n\tcolors - This toggles if you will see colors or not.\n\tinput-color - This changes the input color, possible options are: green, blue, magenta, red, white, yellow.\n\tsecurity - This will not display your private information.\n\tgit-installed - Whenever you update, this may trigger if you'll be asked if you have git installed or not.\n\tedit-warning - This will show a warning if you are running the edit command, even if an error occured."
+                    "\nOptions:\n\tcolors - This toggles if you will see colors or not.\n\tinput-color - This changes the input color, possible options are: green, blue, magenta, red, white, yellow.\n\tsecurity - This will not display your private information.\n\tgit-installed - Whenever you update, this may trigger if you'll be asked if you have git installed or not.\n\tedit-warning - This will show a warning if you are running the edit command, even if an error occured.\n\tuse-size-settings - This will change the command window columns to size-columns and lines to to size-lines every restart.\n\tsize-lines - This is how much lines the command window is.\n\tsize-columns - This is how much columns the command window is."
                 )
             else:
                 newoption = None
@@ -201,12 +206,14 @@ while True is not False:
                     or msg.split(" ")[2].lower() == "on"
                 ):
                     newoption = True
-                if getOption(msg.split(" ")[1].lower()) is not None:
-                    if msg.split(" ")[1].lower() != "input-color":
+                if msg.split(" ")[1].lower() in getSettings().keys():
+                    if msg.split(" ")[1].lower() not in ("input-color", "size-columns", "size-lines"):
                         setOption(msg.split(" ")[1].lower(), newoption)
-                        print("Changed option.")
+                    elif msg.split(" ")[1].lower() == "size-columns" or msg.split(" ")[1].lower() == "size-lines":
+                        setOption(msg.split(" ")[1].lower(), int(msg.split(" ")[2]))
                     else:
                         setOption(msg.split(" ")[1].lower(), msg.split(" ")[2].lower())
+                    print("Changed option successfully.")
                 else:
                     print("That is not an existing option, please read the settings.json or do \"change --help\" to see what options you can change.")
                     match msg.split(" ")[1].lower():
