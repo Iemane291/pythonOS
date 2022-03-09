@@ -147,7 +147,7 @@ while True is not False:
                 else:
                     raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
             except NameError as e:
-                if str(e) == "'newValue' is not defined":
+                if str(e) == "name 'newValue' is not defined":
                     pass
                 else:
                     raise ValueError(str(e))
