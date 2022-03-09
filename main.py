@@ -279,6 +279,10 @@ while True is not False:
                     os.system("python pybrowse.pyw")
 
 
+        elif msg.lower().startswith("echo"):
+            if len(msg.split(" ")) < 1: print()
+            else: print(msg[5:])
+
         elif msg.lower() == "restart":
             if getOption("colors"):
                 richPrint("[bold red]Restarting..[/bold red]")
@@ -306,4 +310,3 @@ while True is not False:
                 richPrint(f"[bold red]Error: [/bold red]{str(e)}")
             else:
                 print("Error: " + str(e))
-
