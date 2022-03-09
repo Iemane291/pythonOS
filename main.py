@@ -10,9 +10,7 @@ def getOption(option):
     coolpath = Path("data")
     with open(coolpath / "settings.json", "r") as f:
         data = json.load(f)
-        if data.get(option) == "on": return True
-        elif data.get(option) == "off": return False
-        else: return data.get(option)
+        return data.get(option)
 
 if os.name == "nt" and getOption("use-size-settings"):
     os.system(f"mode con: cols={getOption('size-columns')} lines={getOption('size-lines')}")
