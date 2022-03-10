@@ -83,7 +83,7 @@ Linux: `python main.py`
 ## Options
 This section is based on the changeable options (if you are a developer, there is a settings.json located in the data folder so you can edit settings)
 
-All of these settings can be changed by doing `change <setting_name> <new_value>`
+All of these settings can be changed by doing `change <setting_name> <new_value>` or running the `pyconf` command to open an application to easily change your settings through a graphical user interface.
 
 An option's possible values are called boolean values if their possible values are `true`, `on`, `off` and `false`
 

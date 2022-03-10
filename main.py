@@ -167,6 +167,12 @@ while True is not False:
                     pass
                 else:
                     raise ValueError(str(e))
+        
+        elif msg.lower() == "pyconf":
+            match usersOS():
+                case "Windows": os.system("py pyconf.pyw")
+                case "Darwin": os.system("python3 pyconf.pyw")
+                case "Linux": os.system("python pyconf.pyw")
 
         elif msg.lower().startswith("mkdir"):
             try:
@@ -214,13 +220,17 @@ while True is not False:
                 ):
                     newoption = True
                 if msg.split(" ")[1].lower() in getSettings().keys():
+                    print("Successfully changed option.")
                     if msg.split(" ")[1].lower() not in ("input-color", "size-columns", "size-lines"):
                         setOption(msg.split(" ")[1].lower(), newoption)
                     elif msg.split(" ")[1].lower() == "size-columns" or msg.split(" ")[1].lower() == "size-lines":
                         setOption(msg.split(" ")[1].lower(), int(msg.split(" ")[2]))
+                        if getOption("colors"):
+                            richPrint("[yellow]Please restart pythonOS and make sure the use-size-settings option is turned on for these changes to take effect[/yellow]")
+                        else:
+                            print("Please restart pythonOS and make sure the use-size-settings option is turned on for these changes to take effect")
                     else:
                         setOption(msg.split(" ")[1].lower(), msg.split(" ")[2].lower())
-                    print("Changed option successfully.")
                 else:
                     print("That is not an existing option, please read the settings.json or do \"change --help\" to see what options you can change.")
                     match msg.split(" ")[1].lower():
