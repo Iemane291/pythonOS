@@ -46,7 +46,6 @@ print(randomthing)
 
 import json
 import sys
-import inquirer
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
