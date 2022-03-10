@@ -59,6 +59,7 @@ from rich.markdown import Markdown
 
 from rich.console import Console
 from rich import print as richPrint
+from psutil import Process
 
 console = Console()
 
@@ -128,6 +129,9 @@ while True is not False:
         if msg.lower() == "time":
             print(datetime.now())
         
+        elif msg == "cls":
+            os.system("cls" if os.name == "nt" else "clear")
+        
         elif msg.lower().startswith("edit"):
             try:
                 if getOption("error-warning"):
@@ -135,7 +139,8 @@ while True is not False:
                         richPrint("[yellow]WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.[/yellow]")
                     else:
                         print("WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.")
-                if msg.split(' ')[1] in globals():
+                if msg.split(' ')[1] in globals() or msg.split(' ')[1] in locals():
+                    isLocal = False if msg.split(' ')[1] in globals() else True
                     print("What is the type of the value? ")
                     if not getOption("colors"):
                         print("[0] Number\n[1] Text/String")
@@ -151,7 +156,10 @@ while True is not False:
                                 newValue = input(f"What do you want to edit {msg.split(' ')[1]} to? ")
                             case _:
                                 print("That is a not valid number!")
-                    globals()[msg.split(" ")[1]] =  newValue
+                    if not isLocal:
+                        globals()[msg.split(" ")[1]] =  newValue
+                    if isLocal:
+                        locals()[msg.split(" ")[1]] = newValue
                 else:
                     raise ValueError(f"could not find \"{msg.split(' ')[1]}\"")
             except NameError as e:
@@ -268,8 +276,8 @@ while True is not False:
                 else:
                     print("Oops, that does not look like a .wav or .mp3 file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
 
-        elif msg.lower() == "memory":
-            from psutil import Process
+        elif msg.lower() in ("mem", "memory"):
+
 
             curMemory = Process(os.getpid())
             print("Memory in megabytes: " + str(int(curMemory.memory_info().rss / 1e+6)) + "MB")
