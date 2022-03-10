@@ -114,6 +114,7 @@ class Ui_MainWindow(object):
     
     def changeOptions(self):
         self.setOption("input-color", self.comboBox.currentText())
+        self.setOption("security", self.checkBox.isChecked())
         self.setOption("git-installed", self.checkBox_2.isChecked())
         self.setOption("colors", self.checkBox_3.isChecked())
         self.setOption("use-size-settings", self.checkBox_4.isChecked())
