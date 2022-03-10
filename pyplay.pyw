@@ -56,7 +56,10 @@ class Ui_MainWindow(object):
 
 
 import sys
+icon = QtGui.QIcon()
 app = QtWidgets.QApplication(sys.argv)
+icon.addPixmap(QtGui.QPixmap("icons/pyplay/window-icon.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+app.setWindowIcon(icon)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(MainWindow)
