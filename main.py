@@ -174,7 +174,7 @@ while True is not False:
                 case "Darwin": os.system("python3 pyconf.pyw")
                 case "Linux": os.system("python pyconf.pyw")
 
-        elif msg.lower().startswith("mkdir"):
+        elif msg.lower().split(" ")[0] in ("md", "mkdir"):
             try:
                 os.mkdir(msg.split(" ")[1])
             except FileExistsError:
