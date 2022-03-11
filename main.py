@@ -1,7 +1,6 @@
 
 import os
 import json
-import random
 import colorama
 
 from pathlib import Path
@@ -20,10 +19,6 @@ def getOption(option):
 if os.name == "nt" and getOption("use-size-settings"):
     os.system(f"mode con: cols={getOption('size-columns')} lines={getOption('size-lines')}")
 
-randomQuotes = [
-    "Did you know this is the only loading quote?"
-]
-randomthing = random.choice(randomQuotes)
 
 if os.name == 'nt':
     os.system("title pythonOS")
@@ -41,7 +36,6 @@ print("""     _   _                  ____   _____
 """)
 print("v0.0.5a")
 print("Loading..")
-print(randomthing)
 
 
 import json
@@ -89,8 +83,6 @@ if getOption("colors"):
     print(Fore.YELLOW + "Loading..")
 else:
     print("Loading..")
-print(randomthing)
-
 
 def setOption(optionName, option):
     weirdPath = Path("data")
