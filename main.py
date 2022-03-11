@@ -117,7 +117,7 @@ while True is not False:
             case "magenta":
                 msg = input(Fore.MAGENTA + killMe + " >>> ")
             case _:
-                msg = input(os.getcwd() + " >>> ")
+                msg = input(os.getcwd() + killMe + " >>> ")
         if msg.lower() == "time":
             print(datetime.now())
         
