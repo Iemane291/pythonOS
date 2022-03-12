@@ -5,6 +5,9 @@ pythonOS
 [![GitHub Wiki](https://img.shields.io/badge/project-wiki-ff69b4.svg)](https://github.com/Iemane291/pythonOS/wiki/Home)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Iemane291/pythonOS/master/LICENSE)
 [![Github All Releases](https://img.shields.io/github/downloads/Iemane291/pythonOS/total.svg?maxAge=2592000)](https://github.com/Iemane291/pythonOS/releases)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Iemane291/pythonOS/master/LICENSE)
+[![The support server](https://shields.io/discord/943449399307157604)](https://discord.gg/mz3HmzP5ac)
+[![version](https://img.shields.io/badge/version-0.0.5a-blue)](https://github.com/Iemane291/pythonOS/releases)
 
 
 pythonOS is based off of [ChungOS](https://github.com/ArezalGame89/ChungOS), pythonOS is the more better and optimized version of [ChungOS](https://github.com/ArezalGame89/ChungOS).

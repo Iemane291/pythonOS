@@ -233,6 +233,7 @@ while True is not False:
                         case _:
                             pass
         elif msg.lower() == "update":
+            
             if not getOption("git-installed"):
                 if getOption("colors"):
                     print(Fore.RED + "This action requires Git, do you have it installed?")
