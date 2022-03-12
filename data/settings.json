@@ -2,7 +2,7 @@
     "colors": true,
     "input-color": "white",
     "security": true,
-    "git-installed": "UNDEFINED",
+    "git-installed": false,
     "edit-warning": true,
     "use-size-settings": false,
     "size-columns": 134,
