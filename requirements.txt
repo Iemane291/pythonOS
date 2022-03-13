@@ -4,3 +4,4 @@ PyQtWebEngine
 psutil
 playsound
 rich
+lupa
