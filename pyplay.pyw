@@ -36,6 +36,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(210, 280, 151, 28))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.playSound)
+        self.pushButton.setEnabled(bool(soundList))
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
