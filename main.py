@@ -274,6 +274,8 @@ while True is not False:
             if msg.split(" ")[1].endswith(".mp3") or msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".ogg"):
                 pygame.mixer.music.load("pyPlay/sounds/"+msg.split(" ")[1])
                 pygame.mixer.music.play()
+            else:
+                print("That does not seem like an OGG, WAVE or an MP3 sound file.")
 
         elif msg.lower() in ("mem", "memory"):
 
