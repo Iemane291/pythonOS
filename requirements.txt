@@ -2,6 +2,6 @@ colorama
 PyQt5
 PyQtWebEngine
 psutil
-playsound
 rich
 lupa
+pygame

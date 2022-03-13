@@ -40,6 +40,7 @@ print("Loading..")
 
 import json
 import sys
+import pygame
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
@@ -56,6 +57,8 @@ from rich import print as richPrint
 from psutil import Process
 
 console = Console()
+
+pygame.mixer.init()
 
 def reloadOS():
     os.execl(sys.executable, sys.executable, *sys.argv)
@@ -268,16 +271,9 @@ while True is not False:
 
 
         elif msg.lower().startswith("pyplay "):
-            if "-bg" in msg.split(" "):
-                if msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".mp3"):
-                    playsound("pyPlay/sounds/"+msg.split(" ")[1], False)
-                else:
-                    print("Oops, that does not look like a .wav or .mp3  file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
-            else:
-                if msg.split(" ")[1].endswith(".mp3") or msg.split(" ")[1].endswith(".wav"):
-                    playsound("pyPlay/sounds/"+msg.split(" ")[1])
-                else:
-                    print("Oops, that does not look like a .wav or .mp3 file, perhaps add .wav at the end of the filename or input a wav file instead of something else.")
+            if msg.split(" ")[1].endswith(".mp3") or msg.split(" ")[1].endswith(".wav") or msg.split(" ")[1].endswith(".ogg"):
+                pygame.mixer.music.load("pyPlay/sounds/"+msg.split(" ")[1])
+                pygame.mixer.music.play()
 
         elif msg.lower() in ("mem", "memory"):
 
