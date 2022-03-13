@@ -255,6 +255,7 @@ while True is not False:
 
         elif msg.lower() == "exit":
             break
+            print()
 
 
         elif msg.lower() == "privacy":
