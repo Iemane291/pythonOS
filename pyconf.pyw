@@ -11,6 +11,7 @@ import json
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 from pathlib import Path
 
 
@@ -54,6 +55,7 @@ class Ui_MainWindow(object):
         self.checkBox.setGeometry(QtCore.QRect(20, 140, 151, 20))
         self.checkBox.setChecked(self.currentOptions.get("security"))
         self.checkBox.setObjectName("checkBox")
+        self.comboBox.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(190, 50, 341, 16))
         self.label_2.setLineWidth(1)
@@ -78,6 +80,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(260, 350, 141, 28))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.changeOptions)
+        self.pushButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.spinBox = QtWidgets.QSpinBox(self.centralwidget)
         self.spinBox.setGeometry(QtCore.QRect(190, 280, 61, 22))
         self.spinBox.setMaximum(15000)
