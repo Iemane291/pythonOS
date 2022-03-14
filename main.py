@@ -34,7 +34,7 @@ print("""     _   _                  ____   _____
  | |     __/ |                                    
  |_|    |___/                                     
 """)
-print("v0.0.5a")
+print("v0.0.6a")
 print("Loading..")
 
 
@@ -81,7 +81,7 @@ print("""     _   _                  ____   _____
  | |     __/ |                                    
  |_|    |___/                                                                      
 """)
-print("v0.0.5a")
+print("v0.0.6a")
 if getOption("colors"):
     print(Fore.YELLOW + "Loading..")
 else:
