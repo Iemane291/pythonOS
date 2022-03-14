@@ -40,7 +40,6 @@ print("Loading..")
 
 import json
 import sys
-import pygame
 # mf we needed that loading screen, because we are importing a billion things. the pyqt5 imports make this slow so we quickly make a loading screen
 
 from datetime import datetime
@@ -58,8 +57,6 @@ from psutil import Process
 
 console = Console()
 
-pygame.mixer.init()
-
 def reloadOS():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
@@ -70,7 +67,7 @@ def update():
 
 
 
-
+import pygame; pygame.mixer.init()
 os.system("clear" if os.name == "posix" else "cls")
 print("""     _   _                  ____   _____ 
              | | | |                / __ \ / ____|
