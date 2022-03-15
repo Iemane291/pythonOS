@@ -66,7 +66,7 @@ def update():
 
 
 
-
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame; pygame.mixer.init()
 os.system("clear" if os.name == "posix" else "cls")
 print("""     _   _                  ____   _____ 
