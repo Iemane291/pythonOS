@@ -20,7 +20,6 @@ for i in os.listdir("pyPlay/sounds"):
     if i != "readme.txt" and (i.endswith(".mp3") or i.endswith(".wav") or i.endswith(".ogg")):
         soundList.append(i)
 
-chosenSounds = []
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -36,10 +35,14 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(190, 250, 186, 16))
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(210, 280, 151, 28))
+        self.pushButton.setGeometry(QtCore.QRect(150, 280, 151, 28))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.playSound)
         self.pushButton.setEnabled(bool(soundList))
+        self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_1.setGeometry(QtCore.QRect(300, 280, 75, 28))
+        self.pushButton_1.setObjectName("pushButton_1")
+        self.pushButton_1.clicked.connect(self.stopSound)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -52,12 +55,16 @@ class Ui_MainWindow(object):
     def playSound(self):
         pygame.mixer.music.load('pyPlay/sounds/'+soundList[self.listWidget.currentRow()])
         pygame.mixer.music.play()
+    
+    def stopSound(self):
+        pygame.mixer.music.stop()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "pyPlay"))
         self.label.setText(_translate("MainWindow", "Select a sound you want to play."))
         self.pushButton.setText(_translate("MainWindow", "Play selected sound"))
+        self.pushButton_1.setText(_translate("MainWindow", "Stop sound"))
 
 
 import sys
