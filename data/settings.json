@@ -2,9 +2,9 @@
     "colors": true,
     "input-color": "white",
     "security": true,
-    "git-installed": true,
+    "git-installed": false,
     "edit-warning": true,
     "use-size-settings": false,
     "size-columns": 134,
-    "size-lines": 9
+    "size-lines": 9001
 }
