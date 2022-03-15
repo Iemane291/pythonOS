@@ -224,7 +224,7 @@ while True is not False:
                     else:
                         setOption(msg.split(" ")[1].lower(), msg.split(" ")[2].lower())
                 else:
-                    print("That is not an existing option, please read the settings.json or do \"change --help\" to see what options you can change.")
+                    print("That is not an existing option, please read the settings.json or do \"pyconf --help\" to see what options you can change.")
                     match msg.split(" ")[1].lower():
                         case "input-color":
                             setOption("input-color", "white")
