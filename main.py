@@ -164,7 +164,7 @@ while True is not False:
             match usersOS():
                 case "Windows": os.system("py pyconf.pyw")
                 case "Darwin": os.system("python3 pyconf.pyw")
-                case "Linux": os.system("python pyconf.pyw")
+                case "Linux": os.system("python3 pyconf.pyw")
 
         elif msg.lower().split(" ")[0] in ("md", "mkdir"):
             try:
@@ -264,7 +264,7 @@ while True is not False:
             match usersOS():
                 case "Windows": os.system("py pyplay.pyw")
                 case "Darwin": os.system("python3 pyplay.pyw")
-                case "Linux": os.system("python pyplay.pyw")
+                case "Linux": os.system("python3 pyplay.pyw")
 
 
         elif msg.lower().startswith("pyplay "):
@@ -289,7 +289,7 @@ while True is not False:
                     os.system("py pyedit.pyw")
                 
                 case 'Linux':
-                    os.system("python pyedit.pyw")
+                    os.system("python3 pyedit.pyw")
 
         elif msg.lower() == "browser":
 
@@ -301,7 +301,7 @@ while True is not False:
                     os.system("py pybrowse.pyw")
                 
                 case 'Linux':
-                    os.system("python pybrowse.pyw")
+                    os.system("python3 pybrowse.pyw")
 
 
         elif msg.lower().startswith("echo"):
