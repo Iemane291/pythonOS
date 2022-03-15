@@ -128,9 +128,9 @@ while True is not False:
             try:
                 if getOption("error-warning"):
                     if getOption("colors"):
-                        richPrint("[yellow]WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.[/yellow]")
+                        richPrint("[yellow]WARNING: Editing system variables may result in a ton of errors or a crash, if error messages are filling up pythonOS. Immediately close pythonOS and reopen it.[/yellow]")
                     else:
-                        print("WARNING: Editing system variables may result in a ton of errors or a crash, if a loop of errors occur. Immediately close pythonOS and reopen it.")
+                        print("WARNING: Editing system variables may result in a ton of errors or a crash, if error messages are filling up pythonOS. Immediately close pythonOS and reopen it.")
                 if msg.split(' ')[1] in globals() or msg.split(' ')[1] in locals():
                     isLocal = False if msg.split(' ')[1] in globals() else True
                     print("What is the type of the value? ")
