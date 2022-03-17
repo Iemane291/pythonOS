@@ -6,5 +6,6 @@
     "edit-warning": true,
     "use-size-settings": false,
     "size-columns": 134,
-    "size-lines": 9001
+    "size-lines": 9001,
+    "language": "english"
 }
