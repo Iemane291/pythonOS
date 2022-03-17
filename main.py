@@ -149,7 +149,7 @@ while True is not False:
         elif msg == "cls":
             os.system("cls" if os.name == "nt" else "clear")
 
-        elif msg.lower().startswith("edit"):
+        elif (msg.lower().startswith("edit") and language == "english") or (msg.lower().startswith("editar") and language == "spanish-gt"):
             try:
                 if getOption("error-warning"):
                     if getOption("colors"):
@@ -201,7 +201,7 @@ while True is not False:
                                 elif language == "spanish-gt":
                                     newValue = int(
                                         input(
-                                            f"Que queires editar {msg.split(' ')[1]} para?"
+                                            f"Que queires editar {msg.split(' ')[1]} para? "
                                         )
                                     )
                             case 1:
@@ -211,7 +211,7 @@ while True is not False:
                                     )
                                 elif language == "spanish-gt":
                                     newValue = input(
-                                        f"Que queires editar {msg.split(' ')[1]} para?"
+                                        f"Que queires editar {msg.split(' ')[1]} para? "
                                     )
                             case _:
                                 if language == "english":
@@ -358,7 +358,7 @@ while True is not False:
                         print(
                             'Esa no es una opción existente, lea settings.json o haga "pyconf --help" para ver qué opciones puede cambiar.'
                         )
-        elif msg.lower() == "update":
+        elif (msg.lower() == "update" and language == "english") or (msg.lower() == "actualizar" and language == "spanish-gt"):
 
             if not getOption("git-installed"):
                 if getOption("colors"):
@@ -443,7 +443,7 @@ while True is not False:
                 case "Linux":
                     os.system("python3 pyedit.pyw")
 
-        elif msg.lower() == "browser":
+        elif (msg.lower() == "browser" and language == "english") or (msg.lower() == "navegador" and language == "spanish-gt"):
 
             match usersOS():
                 case "Darwin":
@@ -475,7 +475,7 @@ while True is not False:
                     print("Reiniciando..")
             reloadOS()
 
-        elif msg.lower().startswith("correr-luaexpediente"):
+        elif msg.lower().startswith("ejecutar-luafile"):
             if not msg.endswith(".lua"):
                 if language == "english":
                     raise ValueError("could not identify as .lua file")
