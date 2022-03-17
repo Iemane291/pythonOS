@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.label_1.setObjectName("label_1")
         self.label_1.setGeometry(QtCore.QRect(20, 100, 1000, 16))
         self.comboBox_1 = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_1.setGeometry(QtCore.QRect(270, 100, 101, 22))
+        self.comboBox_1.setGeometry(QtCore.QRect(310, 100, 101, 22))
         self.comboBox_1.setObjectName("comboBox_1")
         self.comboBox_1.addItems(["english", "spanish-gt"])
         self.currentLang = 0
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.checkBox_2.setGeometry(QtCore.QRect(20, 160, 121, 31))
         self.checkBox_2.setObjectName("checkBox_2")
         self.checkBox_3 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_3.setGeometry(QtCore.QRect(20, 190, 341, 20))
+        self.checkBox_3.setGeometry(QtCore.QRect(20, 190, 355, 20))
         self.checkBox_2.setChecked(self.currentOptions.get("git-installed"))
         self.checkBox_3.setObjectName("checkBox_3")
         self.checkBox_3.setChecked(self.currentOptions.get("colors"))
