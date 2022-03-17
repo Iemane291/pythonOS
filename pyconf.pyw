@@ -28,11 +28,15 @@ class Ui_MainWindow(object):
         with open(weirdPath / "settings.json", "r") as f:
             self.currentOptions = json.load(f)
         self.label.setGeometry(QtCore.QRect(20, 120, 141, 16))
+        self.lang = self.getOption("language")
         self.label.setObjectName("label")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(160, 120, 101, 22))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItems(["magenta", "yellow", "green", "blue", "red", "white"])
+        self.colorList = ["magenta", "yellow", "green", "blue", "red", "white"]
+        if self.lang == "spanish-gt":
+            self.colorList = ["magenta", "amarillo", "verde", "azul", "rojo", "blanco"]
+        self.comboBox.addItems(self.colorList)
         self.inputColor = 0
         match self.currentOptions.get("input-color"):
             case "magenta":
@@ -48,8 +52,23 @@ class Ui_MainWindow(object):
             case "white":
                 self.inputColor = 5
             case _:
-                self.inputColor = 6
+                self.inputColor = 5
         self.comboBox.setCurrentIndex(self.inputColor)
+
+        self.label_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_1.setObjectName("label_1")
+        self.label_1.setGeometry(QtCore.QRect(20, 100, 1000, 16))
+        self.comboBox_1 = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_1.setGeometry(QtCore.QRect(270, 100, 101, 22))
+        self.comboBox_1.setObjectName("comboBox_1")
+        self.comboBox_1.addItems(["english", "spanish-gt"])
+        self.currentLang = 0
+        match self.currentOptions.get("language"):
+            case "english":
+                self.currentLang = 0
+            case "spanish-gt":
+                self.currentLang = 1
+        self.comboBox_1.setCurrentIndex(self.currentLang)
 
         self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox.setGeometry(QtCore.QRect(20, 140, 151, 20))
@@ -73,7 +92,7 @@ class Ui_MainWindow(object):
         self.checkBox_4.setChecked(self.currentOptions.get("use-size-settings"))
         self.checkBox_4.setObjectName("checkBox_4")
         self.checkBox_5 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_5.setGeometry(QtCore.QRect(20, 250, 501, 20))
+        self.checkBox_5.setGeometry(QtCore.QRect(20, 250, 1500, 20))
         self.checkBox_5.setChecked(self.currentOptions.get("edit-warning"))
         self.checkBox_5.setObjectName("checkBox_5")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -98,7 +117,7 @@ class Ui_MainWindow(object):
         self.spinBox_2.setMaximum(15000)
         self.spinBox_2.setProperty("value", 134)
         self.spinBox_2.setObjectName("spinBox_2")
-        self.spinBox_2.setValue(self.currentOptions.get('size-columns'))
+        self.spinBox_2.setValue(self.currentOptions.get("size-columns"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -106,7 +125,12 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-    
+
+    def getOption(self, optionName):
+        weirdPath = Path("data")
+        with open(weirdPath / "settings.json", "r") as f:
+            return json.load(f).get(optionName)
+
     def setOption(self, optionName, option):
         weirdPath = Path("data")
         with open(weirdPath / "settings.json", "r") as f:
@@ -114,9 +138,17 @@ class Ui_MainWindow(object):
             data[optionName] = option
         with open(weirdPath / "settings.json", "w") as f:
             json.dump(data, f, indent=4)
-    
+
     def changeOptions(self):
-        self.setOption("input-color", self.comboBox.currentText())
+        self.setOption(
+            "input-color",
+            self.comboBox.currentText()
+            .replace("azul", "blue")
+            .replace("verde", "green")
+            .replace("rojo", "red")
+            .replace("blanco", "white")
+            .replace("amarillo", "yellow"),
+        )
         self.setOption("security", self.checkBox.isChecked())
         self.setOption("git-installed", self.checkBox_2.isChecked())
         self.setOption("colors", self.checkBox_3.isChecked())
@@ -124,27 +156,102 @@ class Ui_MainWindow(object):
         self.setOption("edit-warning", self.checkBox_5.isChecked())
         self.setOption("size-lines", self.spinBox.value())
         self.setOption("size-columns", self.spinBox_2.value())
+        self.setOption("language", self.comboBox_1.currentText())
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "pyConf"))
-        self.label.setText(_translate("MainWindow", "What is the input color?"))
-        self.checkBox.setText(_translate("MainWindow", "Do you want security?"))
-        self.label_2.setText(_translate("MainWindow", "Welcome to pyConf, configure your settings here easily."))
-        self.checkBox_2.setText(_translate("MainWindow", "Is git installed?"))
-        self.checkBox_3.setText(_translate("MainWindow", "Do you want colors? (turn off if this causes eyestrains)"))
-        self.checkBox_4.setText(_translate("MainWindow", "Change pythonOS window size to size-lines and size-columns?"))
-        self.checkBox_5.setText(_translate("MainWindow", "Show a warning that your system may error or crash if you edit system variables?"))
+        if self.lang == "english":
+            self.label.setText(_translate("MainWindow", "What is the input color?"))
+            self.checkBox.setText(_translate("MainWindow", "Do you want security?"))
+            self.label_2.setText(
+                _translate(
+                    "MainWindow",
+                    "Welcome to pyConf, configure your settings here easily.",
+                )
+            )
+            self.checkBox_2.setText(_translate("MainWindow", "Is git installed?"))
+            self.checkBox_3.setText(
+                _translate(
+                    "MainWindow",
+                    "Do you want colors? (turn off if this causes eyestrains)",
+                )
+            )
+            self.checkBox_4.setText(
+                _translate(
+                    "MainWindow",
+                    "Change pythonOS window size to size-lines and size-columns?",
+                )
+            )
+            self.checkBox_5.setText(
+                _translate(
+                    "MainWindow",
+                    "Show a warning that your system may error or crash if you edit system variables?",
+                )
+            )
 
-        self.pushButton.setText(_translate("MainWindow", "Change settings"))
-        self.label_3.setText(_translate("MainWindow", "What is the amount of lines?"))
-        self.label_4.setText(_translate("MainWindow", "What is the amount of columns"))
+            self.pushButton.setText(_translate("MainWindow", "Change settings"))
+            self.label_3.setText(
+                _translate("MainWindow", "What is the amount of lines?")
+            )
+            self.label_4.setText(
+                _translate("MainWindow", "What is the amount of columns")
+            )
+            self.label_1.setText(
+                _translate(
+                    "MainWindow", "What is the language? (Needs restart for effect)"
+                )
+            )
+        elif self.lang == "spanish-gt":
+            self.label.setText(
+                _translate("MainWindow", "¿Cuál es el color de entrada?")
+            )
+            self.checkBox.setText(_translate("MainWindow", "¿Quieres seguridad?"))
+            self.label_2.setText(
+                _translate(
+                    "MainWindow",
+                    "Bienvenido a pyConf, configure sus ajustes aquí fácilmente.",
+                )
+            )
+            self.checkBox_2.setText(_translate("MainWindow", "¿Está instalado git?"))
+            self.checkBox_3.setText(
+                _translate(
+                    "MainWindow",
+                    "¿Quieres colores? (apagar si esto causa fatiga visual)",
+                )
+            )
+            self.checkBox_4.setText(
+                _translate(
+                    "MainWindow",
+                    "Cambiar el tamaño de la ventana de pythonOS a size-lines y size-columns",
+                )
+            )
+            self.checkBox_5.setText(
+                _translate(
+                    "MainWindow",
+                    "¿Mostrar una advertencia de que su sistema puede fallar o bloquearse si edita las variables del sistema?",
+                )
+            )
 
+            self.pushButton.setText(_translate("MainWindow", "Cambiar ajustes"))
+            self.label_3.setText(
+                _translate("MainWindow", "¿Cuál es la cantidad de líneas?")
+            )
+            self.label_4.setText(
+                _translate("MainWindow", "¿Cuál es la cantidad de columnas?")
+            )
+            self.label_1.setText(
+                _translate(
+                    "MainWindow", "¿Qué idioma es? (Necesita reiniciar para efecto)"
+                )
+            )
 
 
 app = QtWidgets.QApplication(sys.argv)
 icon = QtGui.QIcon()
-icon.addPixmap(QtGui.QPixmap("icons/pyconf/window-icon.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+icon.addPixmap(
+    QtGui.QPixmap("icons/pyconf/window-icon.png"), QtGui.QIcon.Selected, QtGui.QIcon.On
+)
 app.setWindowIcon(icon)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()

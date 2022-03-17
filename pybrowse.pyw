@@ -1,9 +1,20 @@
 import sys
+import json
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QIcon, QFont
+from pathlib import Path
+
+
+def getOption(optionName):
+    weirdPath = Path("data")
+    with open(weirdPath / "settings.json", "r") as f:
+        return json.load(f).get(optionName)
+
+
+lang = getOption("language")
 
 
 def launch():
@@ -20,23 +31,43 @@ def launch():
             navbar = QToolBar()
             self.addToolBar(navbar)
 
-            back_btn = QAction(QIcon("icons/pybrowse/back-icon.png"), "Back", self)
+            backName, forwardName, reloadName, homeName, quitName = (
+                "Back",
+                "Forward",
+                "Reload",
+                "Home",
+                "Quit",
+            )
+            if lang == "spanish-gt":
+                backName, forwardName, reloadName, homeName, quitName = (
+                    "Atrás",
+                    "Adelante",
+                    "Recargar",
+                    "Inicio",
+                    "Salir",
+                )
+
+            back_btn = QAction(QIcon("icons/pybrowse/back-icon.png"), backName, self)
             back_btn.triggered.connect(self.browser.back)
             navbar.addAction(back_btn)
 
-            forward_btn = QAction(QIcon("icons/pybrowse/foward-icon.png"), "Foward", self)
+            forward_btn = QAction(
+                QIcon("icons/pybrowse/foward-icon.png"), forwardName, self
+            )
             forward_btn.triggered.connect(self.browser.forward)
             navbar.addAction(forward_btn)
 
-            reload_btn = QAction(QIcon("icons/pybrowse/reload-icon.png"), 'Reload', self)
+            reload_btn = QAction(
+                QIcon("icons/pybrowse/reload-icon.png"), reloadName, self
+            )
             reload_btn.triggered.connect(self.browser.reload)
             navbar.addAction(reload_btn)
 
-            home_btn = QAction(QIcon("icons/pybrowse/home-icon.png"), 'Home', self)
+            home_btn = QAction(QIcon("icons/pybrowse/home-icon.png"), homeName, self)
             home_btn.triggered.connect(self.navigate_home)
             navbar.addAction(home_btn)
 
-            quit_btn = QAction(QIcon("icons/pybrowse/quit-icon.png"), "Quit", self)
+            quit_btn = QAction(QIcon("icons/pybrowse/quit-icon.png"), quitName, self)
             quit_btn.triggered.connect(self.close)
             navbar.addAction(quit_btn)
 

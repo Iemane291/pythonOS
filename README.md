@@ -152,6 +152,17 @@ This is the lines for the command window.
 This is the columns for the command window.
 
 
+### language
+
+This chooses the language for pythonOS.
+
+**NOTE: IF A LANGUAGE ENDS WITH `-gt` IT MEANS IT WAS GOOGLE TRANSLATED**
+
+Possible languages are:
+- `spanish-gt`
+- `english`
+
+
 ## FAQ
 ### Q: Why do I get a list index out of range error?
 A: Likely because you haven't provided the argument for that command.
