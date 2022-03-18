@@ -456,10 +456,13 @@ while True is not False:
                 case "Linux":
                     os.system("python3 pybrowse.pyw")
 
-        elif (language == "english" and msg.split(" ")[0] == "echo") or (
-            language == "spanish-gt" and msg.split(" ")[0] == "eco"
+        elif (language == "english" and msg.startswith("echo") ) or (
+            language == "spanish-gt" and msg.startswith("eco")
         ):
-            print(msg.split(" ")[1])
+			if language == "english":
+            	print(msg[5:])
+			elif language == "spanish-gt":
+				print(msg[4:])
 
         elif (language == "english" and msg.lower() == "restart") or (
             language == "spanish-gt" and msg.lower() == "reiniciar"
