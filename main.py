@@ -322,6 +322,7 @@ while True is not False:
                         )
                     elif msg.split(" ")[1].lower() == "language":
                         setOption("language", msg.split(" ")[2].lower())
+                        language = getOption("language")
                         if msg.split(" ")[2].lower() == "spanish-gt":
                             print(
                                 'Reinicie pythonOS usando el comando "reiniciar" para que estos cambios surtan efecto.'
