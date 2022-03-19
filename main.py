@@ -336,6 +336,7 @@ while True is not False:
                         or msg.split(" ")[1].lower() == "size-lines"
                     ):
                         setOption(msg.split(" ")[1].lower(), int(msg.split(" ")[2]))
+                        language = getOption("language")
                         if getOption("colors"):
                             richPrint(
                                 "[yellow]Please restart pythonOS and make sure the use-size-settings option is turned on for these changes to take effect[/yellow]"
