@@ -322,6 +322,7 @@ while True is not False:
                         )
                     elif msg.split(" ")[1].lower() == "language":
                         setOption("language", msg.split(" ")[2].lower())
+                        language = getOption("language") # reassigning the fucking variable since doing reiniciar after setting the lang to spanish-gt wouldn't work.
                         if msg.split(" ")[2].lower() == "spanish-gt":
                             print(
                                 'Reinicie pythonOS usando el comando "reiniciar" para que estos cambios surtan efecto.'
@@ -452,17 +453,12 @@ while True is not False:
 
                 case "Windows":
                     os.system("py pybrowse.pyw")
-
+                    
                 case "Linux":
                     os.system("python3 pybrowse.pyw")
 
-        elif (language == "english" and msg.startswith("echo") ) or (
-            language == "spanish-gt" and msg.startswith("eco")
-        ):
-			if language == "english":
-            	print(msg[5:])
-			elif language == "spanish-gt":
-				print(msg[4:])
+        elif (msg.lower().split(" ")[0] == "echo" and language == "english") or (msg.lower().split(" ")[0] == "eco" and language == "spanish-gt"):
+            print(msg.split(" ")[1])
 
         elif (language == "english" and msg.lower() == "restart") or (
             language == "spanish-gt" and msg.lower() == "reiniciar"
