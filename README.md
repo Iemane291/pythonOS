@@ -1,4 +1,6 @@
-pythonOS
+<div align="center">
+  pythonOS
+</div>
 ---
 [![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
 [![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
