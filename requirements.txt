@@ -5,3 +5,4 @@ psutil
 rich
 lupa
 pygame
+playsound
