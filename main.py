@@ -449,13 +449,13 @@ while True is not False:
 
             match usersOS():
                 case "Darwin":
-                    os.system("python3 pybrowse.pyw")
+                    os.system("python3 pybrowse.pyw --enable-smooth-scrolling")
 
                 case "Windows":
-                    os.system("py pybrowse.pyw")
+                    os.system("py pybrowse.pyw --enable-smooth-scrolling")
                     
                 case "Linux":
-                    os.system("python3 pybrowse.pyw")
+                    os.system("python3 pybrowse.pyw --enable-smooth-scrolling")
 
         elif (msg.lower().split(" ")[0] == "echo" and language == "english") or (msg.lower().split(" ")[0] == "eco" and language == "spanish-gt"):
             print(msg.split(" ")[1])
