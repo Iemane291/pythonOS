@@ -36,7 +36,7 @@ Windows: `py -m pip install -r requirements.txt`
 
 Mac: `python3 -m pip install -r requirements.txt`
 
-Linux: `python -m pip install -r requirements.txt`
+Linux: `python3 -m pip install -r requirements.txt`
 
 > The Linux command is untested.
 
@@ -48,7 +48,7 @@ Windows: `py main.py`
 
 Mac: `python3 main.py`
 
-Linux: `python main.py`
+Linux: `python3 main.py`
 
 > The Linux command is untested.
 
@@ -62,7 +62,7 @@ Windows: `py main.py`
 
 Mac: `python3 main.py`
 
-Linux: `python main.py`
+Linux: `python3 main.py`
 
 > The Linux command is untested.
 
@@ -80,7 +80,7 @@ Windows: `py main.py`
 
 Mac: `python3 main.py`
 
-Linux: `python main.py`
+Linux: `python3 main.py`
 
 ## Options
 This section is based on the changeable options (if you are a developer, there is a settings.json located in the data folder so you can edit settings)
@@ -173,4 +173,4 @@ A: Likely because you haven't provided the argument for that command.
 
 ### Special Thanks
 
-- [Arezal](mailto:aradytfa@gmail.com) -  Made a good PR & created ChungOS. If ChungOS wasn't made by him this wouldn't have existed so thanks to him.
+- [Arezal](mailto:aradytfa@gmail.com) -  Made a good PR & created ChungOS.
