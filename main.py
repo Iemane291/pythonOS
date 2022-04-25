@@ -59,7 +59,6 @@ from colorama import Fore, Back, Style
 from platform import system as usersOS
 
 from lupa import LuaRuntime
-from playsound import playsound
 from webbrowser import open_new_tab as openNewTab
 from rich.markdown import Markdown
 
